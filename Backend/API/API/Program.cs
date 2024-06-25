@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using API.Server.Data;
-using API.Server.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using System.Text;
+using API.Server.Data;
+using API.Server.Models;
 using API.Server.Interfaces;
 using API.Server.Services;
-using System.Text;
+using Microsoft.Extensions.Options;
+using API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +56,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// Register Coze API settings
+builder.Services.Configure<CozeSettings>(builder.Configuration.GetSection("CozeSettings"));
+
+// Register HttpClient
+builder.Services.AddHttpClient();
 
 // Register services and repositories
 builder.Services.AddScoped<RolesInterface, RolesServices>();
@@ -65,7 +72,6 @@ builder.Services.AddScoped<IProductItemInterface, ProductItemServices>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 // Configure CORS policy
 builder.Services.AddCors(options =>
