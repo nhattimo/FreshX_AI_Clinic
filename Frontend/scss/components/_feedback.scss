@@ -1,0 +1,145 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.feedback {
+    margin-top: 150px;
+}
+
+.feedback-content {
+    &__title {
+        text-align: center;
+
+        &::after {
+            content: "";
+            width: 80px;
+            height: 2px;
+            display: block;
+            margin: 30px auto;
+            background-color: #2ea4ff;
+            border-color: rgba(0, 0, 0, 0);
+        }
+    }
+}
+
+.feedback-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 40px;
+    border: 1px solid #a2e9fc;
+    border-radius: 5px;
+
+    &__container {
+        padding: 40px;
+        background: #fff;
+    }
+
+    &__container + &__container {
+        border-left: 1px solid #a2e9fc;
+    }
+
+    &__wrap {
+        @extend %flexItemCenter;
+        gap: 20px;
+    }
+
+    &__avt {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid #a2e9fc;
+    }
+
+    &__name {
+        color: #151e66;
+        font-weight: 500;
+        line-height: 1.62;
+    }
+
+    &__status {
+        color: #2ea4ff;
+        font-size: 1.3rem;
+        font-weight: 500;
+        line-height: 1.77;
+    }
+
+    &__desc {
+        width: 90%;
+        margin-top: 20px;
+        font-size: 1.4rem;
+        line-height: 1.71;
+    }
+
+    &__rate {
+        @extend %flexItemCenter;
+        padding: 10px 20px;
+        margin-top: 20px;
+        background: #e9f6ff;
+        border-radius: 10px;
+
+        &--bottom {
+            width: 32%;
+            margin: 0 auto;
+            background: #fff;
+        }
+    }
+
+    &__text,
+    &__rated,
+    &__text-next {
+        color: #151e66;
+        font-weight: 500;
+        line-height: 1.62;
+    }
+
+    &__text-next {
+        margin-left: 5px;
+    }
+
+    &__rated {
+        margin-left: 5px;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+
+    &__stars {
+        @extend %flexItemCenter;
+        column-gap: 3px;
+        margin-left: auto;
+    }
+}
+
+.feedback-bottom {
+    position: relative;
+    z-index: -1;
+    padding: 320px 0 120px;
+    margin-top: -150px;
+    background: #e9f6ff;
+
+    &__title,
+    &__desc {
+        margin: 30px auto 0;
+        text-align: center;
+    }
+
+    &__desc {
+        width: 18%;
+
+        &--bot {
+            width: 100%;
+        }
+    }
+
+    &__link {
+        color: #4157ff;
+    }
+
+    &__btn {
+        display: block;
+        margin: 20px auto;
+        width: 10.3%;
+    }
+}

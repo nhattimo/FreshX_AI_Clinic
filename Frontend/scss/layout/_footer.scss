@@ -1,0 +1,140 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    background: #151e66;
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 200px;
+    padding-right: 40px;
+    border-radius: 0 0 20px 20px;
+    background: #4157ff;
+
+    &__img {
+        height: 430px;
+        position: relative;
+        bottom: 229px;
+        display: inline-block;
+    }
+
+    &__btn {
+        height: 40px;
+        width: 43%;
+        padding: 12px 22px !important;
+        margin-top: 50px;
+        background: #2ea4ff !important;
+
+        &:hover {
+            background: #151e66 !important;
+        }
+    }
+}
+
+.footer-top-content {
+    margin-top: 50px;
+    width: 80%;
+    &__title {
+        color: #fff;
+        font-size: 3.2rem;
+        font-weight: 600;
+        line-height: 1.31;
+    }
+
+    &__desc {
+        color: #fff;
+        margin-top: 1px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.71;
+    }
+}
+
+.footer-bot {
+    @extend %flexItemCenter;
+    margin-top: 65px;
+
+    &__slogan {
+        width: 65%;
+        margin-top: 30px;
+        color: #2ea4ff;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.42;
+    }
+}
+
+.footer-right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 115px;
+    margin-left: 150px;
+
+    &__title {
+        margin-left: 10px;
+        margin-bottom: 20px;
+        color: #fff;
+        font-size: 1.8rem;
+        font-weight: 700;
+        line-height: 1.56;
+    }
+
+    &__item + &__item {
+        margin-top: 5px;
+    }
+
+    &__link {
+        opacity: 0.5;
+        color: #d8eeff;
+        border-radius: 4px;
+        padding: 5px 10px;
+        font-size: 1.4rem;
+        line-height: 2.14;
+        transition: all 0.5s ease;
+
+        &:hover {
+            background: #4157ff;
+            opacity: 1;
+        }
+    }
+}
+
+.footer-copyright {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(210, 210, 245, 0.2);
+
+    &__text {
+        color: #d8eeff;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.57;
+    }
+
+    &__socials {
+        @extend %flexItemCenter;
+        gap: 5px;
+    }
+
+    &__social {
+        padding: 5px;
+        width: 26px;
+        height: 26px;
+        background: #2ea4ff;
+        border: 1px solid #000;
+        border-radius: 4px;
+        transition: 0.25s;
+
+        &:hover {
+            background: #fff;
+        }
+    }
+}

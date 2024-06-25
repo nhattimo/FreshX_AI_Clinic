@@ -1,0 +1,127 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.service {
+    margin-top: 198px;
+
+    &-containers {
+        margin-top: 100px;
+    }
+}
+
+.service-content {
+    @extend %flexItemCenter;
+    justify-content: space-between;
+
+    &__title {
+        width: 30%;
+
+        &::after {
+            content: "";
+            width: 80px;
+            height: 2px;
+            display: block;
+            margin-top: 20px;
+            background: #2ea4ff;
+        }
+    }
+}
+
+.service-container {
+    display: block;
+    width: 100%;
+    height: 400px;
+    background: #d8eeff;
+    border-radius: 6px;
+    padding: 40px;
+    transition: 0.25s ease;
+
+    &:hover {
+        background: rgb(46, 164, 255);
+        background: linear-gradient(
+            360deg,
+            rgba(46, 164, 255, 1) 29%,
+            rgba(65, 87, 255, 1) 70%
+        );
+    }
+
+    &__img {
+        width: 60px;
+        height: 60px;
+        padding: 8px;
+        border-radius: 10px;
+        background: #2ea4ff;
+    }
+
+    &__title {
+        margin-top: 150px;
+        color: #151e66;
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.5;
+        transition: 0.8s;
+    }
+
+    &__desc {
+        width: 80%;
+        margin-top: 10px;
+        color: #7077b3;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.71;
+        transition: 0.8s;
+    }
+}
+
+.service-container:hover > .service-container__title {
+    color: #fff;
+}
+
+.service-container:hover > .service-container__desc {
+    color: rgba(216, 238, 255, 0.9);
+}
+
+.service-datas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 100px;
+    padding: 60px 0;
+    border-top: 1px solid #d8eeff;
+    border-bottom: 1px solid #d8eeff;
+}
+
+.service-data {
+    @extend %flexItemCenter;
+    flex-direction: column;
+    text-align: center;
+
+    &__num {
+        margin-bottom: 20px;
+        color: #151e66;
+        font-size: 4.8rem;
+        font-weight: 600;
+        line-height: 1.21;
+    }
+
+    &__title {
+        margin-bottom: 10px;
+        color: #2ea4ff;
+        font-weight: 600;
+    }
+
+    &__desc {
+        width: 75%;
+        color: #555c96;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.71;
+    }
+}
+
+.service-data + .service-data {
+    border-left: 1px solid #d8eeff;
+}

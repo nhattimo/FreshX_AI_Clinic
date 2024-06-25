@@ -1,0 +1,287 @@
+@use "../abstracts";
+
+%flexItemCenter {
+    display: flex;
+    align-items: center;
+}
+
+.chat {
+    height: 80vh;
+    &__container {
+        height: 85.3vh;
+        @extend %flexItemCenter;
+        flex-direction: column;
+        border-right: 1px solid #000;
+    }
+}
+
+.chat-info {
+    @extend %flexItemCenter;
+    flex-direction: column;
+    &__avatar {
+        width: 68px;
+        height: 68px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid #4157ffa6;
+    }
+
+    &__name {
+        margin-top: 12px;
+        color: #000;
+        font-size: 2.2rem;
+        font-weight: 600;
+        line-height: 1.21;
+    }
+
+    &__mail {
+        color: #959595;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.71;
+    }
+}
+
+.chat-block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 36px;
+    overflow-y: auto;
+
+    &__item {
+        width: 80%;
+        padding: 15px 10px;
+        border: 1px solid #959595;
+        border-radius: 20px;
+    }
+
+    &__item + &__item {
+        margin-top: 12px;
+    }
+
+    &__title {
+        color: #959595;
+        font-size: 1.7rem;
+        font-style: italic;
+    }
+
+    &__diagnostic,
+    &__status,
+    &__date {
+        color: #000;
+        font-weight: 500;
+        line-height: 1.21;
+    }
+
+    &__diagnostic {
+        margin-top: 8px;
+    }
+}
+
+.chat-container {
+    overflow: auto;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+
+    &__wrap {
+        width: 100%;
+        margin-top: 36px;
+        padding: 15px 25px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: 0.15s;
+
+        &:active,
+        &:hover {
+            color: #fff;
+            background: #5366fad9;
+            border-color: #5366fad9;
+        }
+    }
+
+    &__wrap + &__wrap {
+        margin-top: 12px;
+    }
+}
+
+.chat-box {
+    width: 90%;
+    padding: 25px;
+    height: 550px;
+    position: relative;
+    margin: 15px auto;
+    border-radius: 20px;
+    background: #ccc;
+    overflow: auto;
+
+    &__wrap {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        translate: -50% -30%;
+        @extend %flexItemCenter;
+    }
+
+    &__logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    &__text {
+        line-height: 1.21;
+    }
+
+    &__form {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        translate: -50%;
+    }
+
+    &__input {
+        width: 680px;
+        height: 42px;
+        padding: 5px 160px 5px 15px;
+        border: 1px solid #000;
+        border-radius: 12px;
+
+        font-size: 1.8rem;
+        color: #000;
+
+        &::placeholder {
+            font-size: 1.8rem;
+            color: #00000046;
+        }
+    }
+
+    &__icons {
+        position: absolute;
+        bottom: 12px;
+        right: 70px;
+        @extend %flexItemCenter;
+        gap: 12px;
+        padding-right: 8px;
+        border-right: 1px solid #000;
+
+        &:nth-child(3) {
+            right: 10px;
+            border: none;
+        }
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+
+    &__out {
+        position: fixed;
+        top: 120px;
+        left: 450px;
+        margin: 15px;
+    }
+
+    &__icon-out {
+        width: 26px;
+        height: 26px;
+        rotate: 180deg;
+    }
+
+    &__container.hide {
+        display: none;
+    }
+
+    &__container.show {
+        display: block;
+    }
+
+    &__container {
+        margin-left: 85px;
+    }
+
+    &__container-wrap {
+        padding: 15px 25px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        transition: 0.25s;
+        font-size: 1.8rem;
+        line-height: 1.21;
+
+        &:hover {
+            color: #fff;
+            background: #4157ffa6;
+            border-color: #4157ffa6;
+            cursor: pointer;
+        }
+
+        &--other {
+            background: #4157ffa6;
+            border: none;
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+
+    &__text {
+        width: 90%;
+        font-size: 1.8rem;
+        line-height: 1.21;
+    }
+
+    &__text + &__text {
+        margin-top: 18px;
+    }
+
+    &__title {
+        font-size: 2.1rem;
+        color: #fff;
+        text-align: center;
+    }
+
+    &__time {
+        margin-top: 28px;
+        color: #fff;
+    }
+
+    &__box {
+        @extend %flexItemCenter;
+        justify-content: space-between;
+    }
+
+    &__location {
+        margin-top: 16px;
+        color: #fff;
+    }
+
+    &__btn {
+        padding: 5px 15px;
+        border-radius: 5px;
+        color: #4157ffa6;
+        background: #fff;
+    }
+}
+
+.chat-message {
+    &__text {
+        display: inline-block;
+        white-space: nowrap;
+        padding: 5px 15px;
+        border-radius: 99px;
+        background: #5a6ae6a6;
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #fff;
+
+        &--AI {
+            bottom: -350px;
+            right: 765px;
+        }
+    }
+}
