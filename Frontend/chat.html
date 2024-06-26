@@ -92,7 +92,7 @@
     <body>
         <header id="header" class="header"></header>
         <script>
-            load("#header", "./templates/header.html");
+            load("#header", "./templates/header-login.html");
         </script>
         <!-- Main -->
         <main>
@@ -118,7 +118,7 @@
                                         Tư vấn: AI văn bản
                                     </h3>
                                     <p class="chat-block__diagnostic">
-                                        Chuẩn đoán: Sỏi thận
+                                        Chuẩn đoán: Bị đau bụng
                                     </p>
                                     <p class="chat-block__status">
                                         Tình trạng: Nhẹ
@@ -127,63 +127,6 @@
                                         Ngày: 15/05/2024
                                         <span class="chat-block__time">
                                             18:06:32
-                                        </span>
-                                    </p>
-                                </a>
-
-                                <!-- Chat Item 2 -->
-                                <a href="#!" class="chat-block__item">
-                                    <h3 class="chat-block__title">
-                                        Tư vấn: AI văn bản + quét hình ảnh
-                                    </h3>
-                                    <p class="chat-block__diagnostic">
-                                        Chuẩn đoán: Dị ứng da
-                                    </p>
-                                    <p class="chat-block__status">
-                                        Tình trạng: Nhẹ
-                                    </p>
-                                    <p class="chat-block__date">
-                                        Ngày: 05/05/2024
-                                        <span class="chat-block__time">
-                                            09:36:12
-                                        </span>
-                                    </p>
-                                </a>
-
-                                <!-- Chat Item 2 -->
-                                <a href="#!" class="chat-block__item">
-                                    <h3 class="chat-block__title">
-                                        Tư vấn: AI văn bản + quét hình ảnh
-                                    </h3>
-                                    <p class="chat-block__diagnostic">
-                                        Chuẩn đoán: Dị ứng da
-                                    </p>
-                                    <p class="chat-block__status">
-                                        Tình trạng: Nhẹ
-                                    </p>
-                                    <p class="chat-block__date">
-                                        Ngày: 05/05/2024
-                                        <span class="chat-block__time">
-                                            09:36:12
-                                        </span>
-                                    </p>
-                                </a>
-
-                                <!-- Chat Item 2 -->
-                                <a href="#!" class="chat-block__item">
-                                    <h3 class="chat-block__title">
-                                        Tư vấn: AI văn bản + quét hình ảnh
-                                    </h3>
-                                    <p class="chat-block__diagnostic">
-                                        Chuẩn đoán: Dị ứng da
-                                    </p>
-                                    <p class="chat-block__status">
-                                        Tình trạng: Nhẹ
-                                    </p>
-                                    <p class="chat-block__date">
-                                        Ngày: 05/05/2024
-                                        <span class="chat-block__time">
-                                            09:36:12
                                         </span>
                                     </p>
                                 </a>
@@ -238,7 +181,72 @@
                                 id="chat-box__message"
                                 class="chat-box__message"
                             >
-                                <div id="chat" class="chat-message"></div>
+                                <div id="chat" class="chat-message">
+                                    <p
+                                        id="messageUser"
+                                        class="chat-message__text"
+                                    >
+                                        Xin chào
+                                    </p>
+
+                                    <p
+                                        id="messageAI"
+                                        class="chat-message__text chat-message__text--AI"
+                                    >
+                                        Chào bạn, tôi có thể giúp gì được cho
+                                        bạn
+                                    </p>
+
+                                    <p
+                                        id="messageUser"
+                                        class="chat-message__text"
+                                    >
+                                        Tôi bị đau bụng
+                                    </p>
+
+                                    <p
+                                        id="messageAI"
+                                        class="chat-message__text chat-message__text--AI"
+                                    >
+                                        Bạn có thể cho tôi biết bạn bị đau ở vị
+                                        trí nào không ?
+                                    </p>
+
+                                    <p
+                                        id="messageUser"
+                                        class="chat-message__text"
+                                    >
+                                        Tôi bị đau bụng dưới
+                                    </p>
+
+                                    <p
+                                        id="messageAI"
+                                        class="chat-message__text chat-message__text--AI"
+                                    >
+                                        Dựa vào triệu chứng bạn đưa ra, chúng
+                                        tôi đã phát hiện ra rằng bạn có thể bị
+                                        mắc phải một số vấn đề liên quan đến đau
+                                        bụng dưới. Chúng tôi khuyên bạn nên tham
+                                        khảo ý kiến của bác sĩ để được kiểm tra
+                                        và chẩn đoán chính xác.
+                                    </p>
+
+                                    <p
+                                        id="messageUser"
+                                        class="chat-message__text"
+                                    >
+                                        Cảm ơn bạn
+                                    </p>
+
+                                    <p
+                                        id="messageAI"
+                                        class="chat-message__text chat-message__text--AI"
+                                    >
+                                        Cảm ơn bạn, bạn có thể xem phần chuẩn
+                                        đoán ở bên trái để biết rõ hơn bệnh của
+                                        mình nhé
+                                    </p>
+                                </div>
 
                                 <div id="chat-box__wrap" class="chat-box__wrap">
                                     <img

@@ -51,6 +51,7 @@ window.addEventListener("template-loaded", () => {
 
 //Chat
 document.getElementById("out-chat").onclick = function () {
+    this.style.display = "none";
     document.getElementById("chat-block").style.display = "flex";
     document.getElementById("chat-box__message").style.display = "block";
     document.getElementById("chat-container").style.display = "none";
@@ -62,6 +63,7 @@ arr = document.getElementsByClassName("chat-block__item");
 for (let index = 0; index < arr.length; index++) {
     const element = arr[index];
     element.onclick = function () {
+        document.getElementById("out-chat").style.display = "block";
         document.getElementById("chat-block").style.display = "none";
         document.getElementById("chat-box__message").style.display = "none";
         document.getElementById("chat-container").style.display = "flex";
@@ -483,9 +485,25 @@ document.getElementById("send").onclick = function () {
 };
 
 //AI
-function messageAI(text) {
-    return ` <p
-    id="messageAI"
-    class="chat-message__text chat-message__text--AI"
->${text}</p>`;
-}
+// function messageAI() {
+//     return ` <p
+//     id="messageAI"
+//     class="chat-message__text chat-message__text--AI"
+// >dahdha</p>`;
+// }
+// messageAI();
+
+// document.getElementById("messageAI") = function() {
+//     if (document.getElementById("inputMessage").value !== 0) {
+//         return null
+//     } else {
+
+//     }
+// }
+
+let fakeAI = [
+    "Chào bạn, tôi có thể giúp gì cho bạn ?",
+    "Bạn có thể cho tôi biết bạn bị đau ở vị trí nào không ?",
+    'Dựa vào triệu chứng bạn đưa ra, chúng tôi đã phát hiện ra rằng bạn có thể bị mắc phải một số vấn đề liên quan đến đau bụng dưới. Chúng tôi khuyên bạn nên tham khảo ý kiến của bác sĩ để được kiểm tra và chẩn đoán chính xác. Ngoài ra, bạn cũng có thể tham khảo một số lời khuyên sau đây: "Rửa tay sạch trước khi ăn và chế biến thực phẩm". Chúc bạn sức khỏe!',
+    "Cảm ơn bạn, bạn có thể xem phần chuẩn đoán ở bên trái để biết rõ hơn bệnh của mình nhé",
+];
