@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+        <!-- js -->
+        <script src="./assets/js/main.js"></script>
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon//ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <title>GenAI | Chat</title>
+    </head>
+    <body>
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header-login.html");
+        </script>
+        <!-- Main -->
+        <main>
+            <div class="chat">
+                <div class="row">
+                    <article class="col-3">
+                        <div class="chat__container">
+                            <article class="chat-info">
+                                <img
+                                    src="./assets/img/avt/avt1.jpg"
+                                    alt=""
+                                    class="chat-info__avatar"
+                                />
+                                <h2 class="chat-info__name">Nguyễn Văn Nhật</h2>
+                                <p class="chat-info__mail">
+                                    nhatnvpd07532@fpt.edu.vn
+                                </p>
+                            </article>
+                            <article id="chat-block" class="chat-block">
+                                <!-- Chat Item 1 -->
+                                <a href="#!" class="chat-block__item">
+                                    <h3 class="chat-block__title">
+                                        Tư vấn: AI văn bản
+                                    </h3>
+                                    <p class="chat-block__diagnostic">
+                                        Chuẩn đoán: Sỏi thận
+                                    </p>
+                                    <p class="chat-block__status">
+                                        Tình trạng: Nhẹ
+                                    </p>
+                                    <p class="chat-block__date">
+                                        Ngày: 15/05/2024
+                                        <span class="chat-block__time">
+                                            18:06:32
+                                        </span>
+                                    </p>
+                                </a>
+
+                                <!-- Chat Item 2 -->
+                                <a href="#!" class="chat-block__item">
+                                    <h3 class="chat-block__title">
+                                        Tư vấn: AI văn bản + quét hình ảnh
+                                    </h3>
+                                    <p class="chat-block__diagnostic">
+                                        Chuẩn đoán: Dị ứng da
+                                    </p>
+                                    <p class="chat-block__status">
+                                        Tình trạng: Nhẹ
+                                    </p>
+                                    <p class="chat-block__date">
+                                        Ngày: 05/05/2024
+                                        <span class="chat-block__time">
+                                            09:36:12
+                                        </span>
+                                    </p>
+                                </a>
+
+                                <!-- Chat Item 2 -->
+                                <a href="#!" class="chat-block__item">
+                                    <h3 class="chat-block__title">
+                                        Tư vấn: AI văn bản + quét hình ảnh
+                                    </h3>
+                                    <p class="chat-block__diagnostic">
+                                        Chuẩn đoán: Dị ứng da
+                                    </p>
+                                    <p class="chat-block__status">
+                                        Tình trạng: Nhẹ
+                                    </p>
+                                    <p class="chat-block__date">
+                                        Ngày: 05/05/2024
+                                        <span class="chat-block__time">
+                                            09:36:12
+                                        </span>
+                                    </p>
+                                </a>
+
+                                <!-- Chat Item 2 -->
+                                <a href="#!" class="chat-block__item">
+                                    <h3 class="chat-block__title">
+                                        Tư vấn: AI văn bản + quét hình ảnh
+                                    </h3>
+                                    <p class="chat-block__diagnostic">
+                                        Chuẩn đoán: Dị ứng da
+                                    </p>
+                                    <p class="chat-block__status">
+                                        Tình trạng: Nhẹ
+                                    </p>
+                                    <p class="chat-block__date">
+                                        Ngày: 05/05/2024
+                                        <span class="chat-block__time">
+                                            09:36:12
+                                        </span>
+                                    </p>
+                                </a>
+                            </article>
+                            <article id="chat-container" class="chat-container">
+                                <!-- Chat Container Item 1 -->
+                                <div
+                                    class="chat-container__wrap js-toggle"
+                                    toggle-target="#diagnostic"
+                                >
+                                    <h3 class="chat-container__title">
+                                        Chẩn đoán bệnh
+                                    </h3>
+                                </div>
+                                <!-- Chat Container Item 2 -->
+                                <div
+                                    class="chat-container__wrap js-toggle"
+                                    toggle-target="#symptom"
+                                >
+                                    <h3 class="chat-container__title">
+                                        Triệu chứng
+                                    </h3>
+                                </div>
+                                <!-- Chat Container Item 3 -->
+                                <div
+                                    class="chat-container__wrap js-toggle"
+                                    toggle-target="#nutri"
+                                >
+                                    <h3 class="chat-container__title">
+                                        Chế độ ăn uống và dinh dưỡng
+                                    </h3>
+                                </div>
+                                <!-- Chat Container Item 4 -->
+                                <div
+                                    class="chat-container__wrap js-toggle"
+                                    toggle-target="#practice"
+                                >
+                                    <h3 class="chat-container__title">
+                                        Chế độ tập luyện
+                                    </h3>
+                                </div>
+                                <!-- Chat Container Item 5 -->
+                                <div
+                                    class="chat-container__wrap js-toggle"
+                                    toggle-target="#note"
+                                >
+                                    <h3 class="chat-container__title">Lưu ý</h3>
+                                </div>
+                                <!-- Chat Container Item 6 -->
+                                <div
+                                    class="chat-container__wrap js-toggle"
+                                    toggle-target="#book"
+                                >
+                                    <h3 class="chat-container__title">
+                                        Đặt lịch phòng khám
+                                    </h3>
+                                </div>
+                            </article>
+                        </div>
+                    </article>
+                    <article class="col-9">
+                        <div class="chat-box">
+                            <div class="chat-box__message">
+                                <div class="chat-box__wrap">
+                                    <img
+                                        src="./assets/img/logo.png"
+                                        alt=""
+                                        class="chat-box__logo"
+                                    />
+                                    <p class="chat-box__text">
+                                        Rất vui vì có thể giúp bạn! Nếu bạn có
+                                        bất kỳ câu hỏi nào khác về sức khỏe,
+                                        đừng ngần ngại hỏi. Chúc bạn mau khỏe và
+                                        có một ngày tốt lành
+                                    </p>
+                                </div>
+
+                                <form action="" class="chat-box__form">
+                                    <input
+                                        class="chat-box__input"
+                                        type="text"
+                                        name=""
+                                        id=""
+                                        placeholder="Aa"
+                                    />
+                                    <div class="chat-box__icons">
+                                        <img
+                                            src="./assets/icons/image.svg"
+                                            alt=""
+                                            class="chat-box__icon"
+                                        />
+                                        <img
+                                            src="./assets/icons/cut.svg"
+                                            alt=""
+                                            class="chat-box__icon"
+                                        />
+                                    </div>
+
+                                    <div class="chat-box__icons">
+                                        <img
+                                            src="./assets/icons/mic.svg"
+                                            alt=""
+                                            class="chat-box__icon"
+                                        />
+                                        <button type="button">
+                                            <img
+                                                src="./assets/icons/send.svg"
+                                                alt=""
+                                                class="chat-box__icon"
+                                            />
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div>
+                                <button id="out-chat" class="chat-box__out">
+                                    <img
+                                        class="chat-box__icon-out"
+                                        src="./assets/icons/logout.svg"
+                                        alt=""
+                                    />
+                                </button>
+                                <div
+                                    id="diagnostic"
+                                    class="chat-box__container hide"
+                                >
+                                    <p class="chat-box__text">
+                                        Chẩn đoán bệnh sỏi thận (hay còn gọi là
+                                        bệnh sỏi đường tiết niệu) thường bao gồm
+                                        các bước sau đây:
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        1.
+                                        <strong>
+                                            Hỏi bệnh sử và khám lâm sàng:
+                                        </strong>
+                                        Bác sĩ sẽ hỏi về triệu chứng, tiền sử
+                                        bệnh lý, thói quen sinh hoạt và chế độ
+                                        ăn uống của bệnh nhân. Một số triệu
+                                        chứng điển hình của sỏi thận bao gồm đau
+                                        lưng, đau bụng dưới, buồn nôn, nôn mửa,
+                                        tiểu ra máu, và tiểu khó.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        2.
+                                        <strong>Xét nghiệm nước tiểu:</strong>
+                                        Để tìm kiếm dấu hiệu của máu, vi khuẩn,
+                                        hoặc tinh thể sỏi trong nước tiểu. Một
+                                        số xét nghiệm nước tiểu có thể phát hiện
+                                        sự có mặt của chất hóa học có thể dẫn
+                                        đến hình thành sỏi.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        3. <strong>Xét nghiệm máu:</strong> Để
+                                        kiểm tra mức độ canxi, phốt pho, axit
+                                        uric và chức năng thận. Điều này giúp
+                                        xác định nguyên nhân gây ra sỏi thận và
+                                        đánh giá chức năng thận hiện tại.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        4. <strong>Phân tích sỏi:</strong> Nếu
+                                        bệnh nhân có sỏi được loại bỏ hoặc đi ra
+                                        ngoài theo đường tiểu, bác sĩ có thể yêu
+                                        cầu phân tích sỏi để xác định thành phần
+                                        hóa học của sỏi, từ đó đưa ra phương án
+                                        phòng ngừa tái phát hiệu quả hơn.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        5.<strong>
+                                            Thăm dò chức năng thận:
+                                        </strong>
+                                        Các xét nghiệm như chụp X-quang niệu
+                                        quản, bàng quang (IVP), hoặc siêu âm
+                                        doppler có thể được sử dụng để đánh giá
+                                        mức độ ảnh hưởng của sỏi đến chức năng
+                                        thận và hệ tiết niệu.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        Việc chẩn đoán chính xác bệnh sỏi thận
+                                        là rất quan trọng để đưa ra phương án
+                                        điều trị thích hợp và phòng ngừa tái
+                                        phát sỏi trong tương lai. Nếu bạn nghi
+                                        ngờ mình mắc bệnh sỏi thận, hãy tham
+                                        khảo ý kiến bác sĩ để được tư vấn và
+                                        thực hiện các xét nghiệm cần thiết.
+                                    </p>
+                                </div>
+
+                                <div
+                                    id="symptom"
+                                    class="chat-box__container hide"
+                                >
+                                    <p class="chat-box__text">
+                                        Sỏi thận có thể gây ra nhiều triệu chứng
+                                        khác nhau tùy thuộc vào vị trí, kích
+                                        thước của sỏi và mức độ tắc nghẽn đường
+                                        tiết niệu. Dưới đây là một số triệu
+                                        chứng phổ biến của sỏi thận:
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        1.
+                                        <strong
+                                            >Đau lưng hoặc đau bụng
+                                            dưới:</strong
+                                        >
+                                        <br />
+                                        + Đau có thể bắt đầu ở vùng lưng dưới
+                                        hoặc bên hông và lan xuống bụng dưới và
+                                        háng.<br />
+                                        + Đau có thể diễn ra từng cơn, từ đau
+                                        nhẹ đến rất dữ dội.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        2. <strong>Tiểu ra máu:</strong> Nước
+                                        tiểu có thể có màu hồng, đỏ, hoặc nâu do
+                                        có máu trong nước tiểu (đái máu).
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        3. <strong>Tiểu buốt, tiểu khó:</strong>
+                                        Cảm giác đau buốt khi đi tiểu, hoặc khó
+                                        tiểu.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        4. <strong>Tiểu nhiều lần:</strong>
+                                        Cảm giác muốn đi tiểu thường xuyên hơn
+                                        bình thường.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        5. <strong>Buồn nôn và nôn mửa:</strong>
+                                        Buồn nôn và nôn mửa có thể xảy ra do đau
+                                        hoặc do tắc nghẽn đường tiết niệu.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        6. <strong>Sốt và ớn lạnh:</strong> Nếu
+                                        sỏi gây nhiễm trùng, bệnh nhân có thể bị
+                                        sốt, ớn lạnh, và các triệu chứng giống
+                                        như cúm.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        7.
+                                        <strong>Khó chịu và không yên:</strong>
+                                        Đau do sỏi thận thường rất khó chịu và
+                                        có thể khiến bệnh nhân cảm thấy bồn
+                                        chồn, không yên.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        8.
+                                        <strong>
+                                            Nước tiểu đục hoặc có mùi hôi:
+                                        </strong>
+                                        Nước tiểu có thể trở nên đục hoặc có mùi
+                                        hôi nếu có nhiễm trùng kèm theo.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        Trong một số trường hợp, sỏi thận có thể
+                                        không gây ra bất kỳ triệu chứng nào và
+                                        chỉ được phát hiện tình cờ qua các xét
+                                        nghiệm hình ảnh học. Tuy nhiên, khi sỏi
+                                        bắt đầu di chuyển trong đường tiết niệu
+                                        hoặc gây tắc nghẽn, các triệu chứng sẽ
+                                        trở nên rõ ràng hơn và có thể rất đau
+                                        đớn.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        Nếu bạn có bất kỳ triệu chứng nào kể
+                                        trên, đặc biệt là đau dữ dội hoặc tiểu
+                                        ra máu, bạn nên tìm kiếm sự tư vấn từ
+                                        bác sĩ để được chẩn đoán và điều trị kịp
+                                        thời.
+                                    </p>
+                                </div>
+
+                                <div
+                                    id="nutri"
+                                    class="chat-box__container hide"
+                                >
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                1. Salad rau xanh với nước chanh
+                                                và dầu ô liu
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                2. Cá hồi nướng với rau cải
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                3. Cà rốt xào me
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                4. Chè bí đỏ
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                5. Xương hầm củ cải trắng
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                6. Trứng bắc thảo nấu canh cá rô
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div
+                                    id="practice"
+                                    class="chat-box__container hide"
+                                >
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                1. Bài tập tim mạch (cardio)
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                2. Bài tập linh hoạt và cân bằng
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap"
+                                            >
+                                                3. Bài tập sức mạnh
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="note" class="chat-box__container hide">
+                                    <p class="chat-box__text">
+                                        Lưu ý khi tập luyện
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        1. <strong>Tăng dần mức độ:</strong> Bắt
+                                        đầu với mức độ tập luyện nhẹ và tăng dần
+                                        theo thời gian để tránh chấn thương.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        2. <strong>Nghe cơ thể bạn:</strong> Nếu
+                                        cảm thấy đau hoặc không thoải mái, nên
+                                        ngừng tập và nghỉ ngơi.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        3. <strong>Uống đủ nước:</strong> Uống
+                                        nước trước, trong và sau khi tập luyện
+                                        để tránh mất nước, đặc biệt là khi tập
+                                        luyện ngoài trời hoặc trong môi trường
+                                        nóng.
+                                    </p>
+
+                                    <p class="chat-box__text">
+                                        4.
+                                        <strong
+                                            >Tránh tập luyện quá sức:</strong
+                                        >
+                                        Không nên tập luyện quá mức, vì căng
+                                        thẳng cơ thể quá nhiều có thể làm tăng
+                                        nguy cơ hình thành sỏi thận.
+                                    </p>
+                                </div>
+
+                                <div id="book" class="chat-box__container hide">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap chat-box__container-wrap--other"
+                                            >
+                                                <h4 class="chat-box__title">
+                                                    Phòng khám KCL
+                                                </h4>
+                                                <p class="chat-box__time">
+                                                    <em> Giờ làm việc:</em>
+                                                    07:00 - 11:00 & 13:00 -
+                                                    17:00
+                                                </p>
+                                                <div class="chat-box__box">
+                                                    <p
+                                                        class="chat-box__location"
+                                                    >
+                                                        <em>Địa chỉ:</em> 123 Lê
+                                                        Đình Lý - Đà Nẵng
+                                                    </p>
+                                                    <a
+                                                        href="./sign-in.html"
+                                                        class="chat-box__btn"
+                                                    >
+                                                        Đặt lịch ngay
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap chat-box__container-wrap--other"
+                                            >
+                                                <h4 class="chat-box__title">
+                                                    Bệnh viên đa khoa Gia Đình
+                                                </h4>
+                                                <p class="chat-box__time">
+                                                    <em>Giờ làm việc:</em> 07:00
+                                                    - 11:00 & 13:00 - 17:00
+                                                </p>
+                                                <div class="chat-box__box">
+                                                    <p
+                                                        class="chat-box__location"
+                                                    >
+                                                        <em>Địa chỉ:</em> Nguyễn
+                                                        Hữu Thọ - Đà Nẵng
+                                                    </p>
+                                                    <a
+                                                        href="./sign-in.html"
+                                                        class="chat-box__btn"
+                                                    >
+                                                        Đặt lịch ngay
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div
+                                                class="chat-box__container-wrap chat-box__container-wrap--other"
+                                            >
+                                                <h4 class="chat-box__title">
+                                                    Bệnh viên y học cổ truyền
+                                                </h4>
+                                                <p class="chat-box__time">
+                                                    <em>Giờ làm việc:</em> 07:00
+                                                    - 11:00 & 13:00 - 17:00
+                                                </p>
+                                                <div class="chat-box__box">
+                                                    <p
+                                                        class="chat-box__location"
+                                                    >
+                                                        <em>Địa chỉ:</em> Đinh
+                                                        Gia Trinh - Đà Nẵng
+                                                    </p>
+                                                    <a
+                                                        href="./sign-in.html"
+                                                        class="chat-box__btn"
+                                                    >
+                                                        Đặt lịch ngay
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

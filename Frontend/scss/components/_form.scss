@@ -64,7 +64,7 @@ $error-color: #ed4337;
         border: 1px solid #d2d1d6;
 
         &:focus-within {
-            border-color: #4157ff;
+            border-color: #0fb5d9;
         }
     }
 
@@ -200,8 +200,8 @@ $error-color: #ed4337;
 
     &__checkbox:has(:checked) {
         &::before {
-            border-color: #4157ff;
-            background: #4157ff;
+            border-color: #eb5b27;
+            background: #eb5b27;
         }
 
         &::after {

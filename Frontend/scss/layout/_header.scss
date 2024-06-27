@@ -6,12 +6,12 @@
 }
 
 .header {
+    position: relative;
     padding: 25px 70px;
     background: #fff;
     position: sticky;
     top: 0;
     z-index: 10;
-    opacity: 0.8;
 
     &__inner {
         @extend %flexItemCenter;
@@ -37,9 +37,15 @@
     }
 
     &__link {
+        font-size: 1.8rem;
         font-weight: 600;
         line-height: 1.37;
-        color: #151e66;
+        color: #0fb5d9;
+        transition: 0.25s;
+
+        &:hover {
+            color: #000;
+        }
     }
 }
 
@@ -60,9 +66,10 @@
         border-radius: 50%;
     }
 
-    &__name {
-        font-weight: 600;
-        color: #151e66;
+    &__notice {
+        &:hover {
+            animation: ring 6s ease-in-out;
+        }
     }
 
     &__icon {

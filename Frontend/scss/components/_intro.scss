@@ -19,7 +19,12 @@
         height: 60px;
         padding: 10px;
         border-radius: 10px;
-        background: #2ea4ff;
+        background: rgb(15, 181, 217);
+        background: linear-gradient(
+            128deg,
+            rgba(15, 181, 217, 1) 0%,
+            rgba(235, 91, 39, 1) 99%
+        );
     }
 
     &__title {
@@ -49,7 +54,7 @@
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background: #c7e7ff;
+        background: #0fb5d9;
         background-image: url(../../assets/icons/check.svg);
         background-position: 50%;
         background-repeat: no-repeat;
@@ -128,14 +133,14 @@
     }
 
     &__num {
-        color: #4173e8;
+        color: #0fb5d9;
         font-size: 2.2rem;
         font-weight: 600;
     }
 
     &__text {
         margin-top: 5px;
-        color: #2ea4ff;
+        color: #000;
         font-size: 1.2rem;
         font-weight: 500;
     }

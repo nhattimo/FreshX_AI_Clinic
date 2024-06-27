@@ -26,7 +26,7 @@
             height: 2px;
             display: block;
             margin-top: 20px;
-            background: #2ea4ff;
+            background: #000;
         }
     }
 }
@@ -34,32 +34,27 @@
 .service-container {
     display: block;
     width: 100%;
-    height: 400px;
     background: #d8eeff;
     border-radius: 6px;
     padding: 40px;
     transition: 0.25s ease;
-
-    &:hover {
-        background: rgb(46, 164, 255);
-        background: linear-gradient(
-            360deg,
-            rgba(46, 164, 255, 1) 29%,
-            rgba(65, 87, 255, 1) 70%
-        );
-    }
 
     &__img {
         width: 60px;
         height: 60px;
         padding: 8px;
         border-radius: 10px;
-        background: #2ea4ff;
+        background: rgb(15, 181, 217);
+        background: linear-gradient(
+            128deg,
+            rgba(15, 181, 217, 1) 0%,
+            rgba(235, 91, 39, 1) 99%
+        );
     }
 
     &__title {
         margin-top: 150px;
-        color: #151e66;
+        color: #0fb5d9;
         font-size: 2rem;
         font-weight: 600;
         line-height: 1.5;
@@ -69,7 +64,7 @@
     &__desc {
         width: 80%;
         margin-top: 10px;
-        color: #7077b3;
+        color: #000;
         font-size: 1.4rem;
         font-weight: 500;
         line-height: 1.71;
@@ -78,11 +73,7 @@
 }
 
 .service-container:hover > .service-container__title {
-    color: #fff;
-}
-
-.service-container:hover > .service-container__desc {
-    color: rgba(216, 238, 255, 0.9);
+    color: #eb5b27;
 }
 
 .service-datas {
@@ -101,7 +92,7 @@
 
     &__num {
         margin-bottom: 20px;
-        color: #151e66;
+        color: #0fb5d9;
         font-size: 4.8rem;
         font-weight: 600;
         line-height: 1.21;
@@ -109,13 +100,13 @@
 
     &__title {
         margin-bottom: 10px;
-        color: #2ea4ff;
+        color: #0fb5d9;
         font-weight: 600;
     }
 
     &__desc {
         width: 75%;
-        color: #555c96;
+        color: #000;
         font-size: 1.4rem;
         font-weight: 500;
         line-height: 1.71;

@@ -19,7 +19,7 @@
             height: 2px;
             display: block;
             margin: 30px auto;
-            background-color: #2ea4ff;
+            background-color: #000;
             border-color: rgba(0, 0, 0, 0);
         }
     }
@@ -50,17 +50,17 @@
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        border: 2px solid #a2e9fc;
+        border: 2px solid #0fb5d9;
     }
 
     &__name {
-        color: #151e66;
+        color: #000;
         font-weight: 500;
         line-height: 1.62;
     }
 
     &__status {
-        color: #2ea4ff;
+        color: #0fb5d9;
         font-size: 1.3rem;
         font-weight: 500;
         line-height: 1.77;
@@ -90,7 +90,7 @@
     &__text,
     &__rated,
     &__text-next {
-        color: #151e66;
+        color: #000;
         font-weight: 500;
         line-height: 1.62;
     }
@@ -134,7 +134,7 @@
     }
 
     &__link {
-        color: #4157ff;
+        color: rgba(59, 209, 243, 0.903);
     }
 
     &__btn {
