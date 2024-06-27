@@ -83,7 +83,7 @@
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta
             name="msapplication-TileImage"
-            content="./assets/favicon//ms-icon-144x144.png"
+            content="./assets/favicon/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
         <title>GenAI | Home</title>
@@ -100,7 +100,7 @@
                 <div class="hero__inner">
                     <section class="hero-content">
                         <h2 class="hero-content__title">
-                            Have a great time at GenAI
+                            Have a great time at Fresh X
                         </h2>
                         <p class="hero-content__desc section-desc">
                             We’ve taken care of all the digital boring details,
@@ -108,7 +108,7 @@
                             and clients satisfaction.
                         </p>
                         <a
-                            href="#!"
+                            href="./sign-in.html"
                             class="button-82-pushable hero-content__action"
                             role="button"
                         >
@@ -123,7 +123,7 @@
                             src="./assets/img/hero/avt.png"
                             alt=""
                         />
-                        <div class="hero-info__icons">
+                        <div class="hero-info__icons d-sm-none">
                             <img
                                 src="./assets/icons/icon1.png"
                                 alt=""
@@ -157,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero-search">
+                <div class="hero-search d-md-none">
                     <div class="hero-search__inner">
                         <h3 class="hero-search__title">
                             You may be looking for:
@@ -196,7 +196,7 @@
                             class="into-content__img"
                         />
                         <h2 class="into-content__title section-heading">
-                            With Your Doctor AI it's a click Away
+                            With Your Fresh X it's a click Away
                         </h2>
                         <p class="into-content__desc section-desc">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -221,7 +221,7 @@
                             >Meet Our Staff</a
                         >
                     </section>
-                    <div class="intro-info">
+                    <div class="intro-info d-lg-none">
                         <img
                             src="./assets/img/intro/avt.png"
                             alt=""
@@ -281,12 +281,12 @@
                         <h2 class="section-heading service-content__title">
                             Showcase Unique Services
                         </h2>
-                        <a href="#!" class="btn service-content__btn">
+                        <a href="#!" class="btn service-content__btn d-sm-none">
                             All Service
                         </a>
                     </section>
                     <div class="service-containers">
-                        <div class="row row-cols-3">
+                        <div class="row row-cols-3 row-cols-lg-1 gy-3">
                             <!-- Service item 1 -->
                             <article class="col">
                                 <a href="#!" class="service-container">
@@ -391,9 +391,34 @@
                             Meet Our Team
                         </h2>
                         <div class="about-info">
-                            <div class="row g-3 row-cols-3">
+                            <div class="row g-3 row-cols-3 row-cols-lg-1">
                                 <!-- About Item 1 -->
                                 <article class="col">
+                                    <div class="about-info__wraps">
+                                        <img
+                                            src="./assets/img/about/avt1.jpg"
+                                            alt=""
+                                            class="about-info__avt"
+                                        />
+                                        <div class="about-info__wrap">
+                                            <h3 class="about-info__name">
+                                                Hoang Bao Trung
+                                            </h3>
+                                            <p class="about-info__position">
+                                                Designer & Front-end
+                                            </p>
+                                            <p class="about-info__desc">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing elit.
+                                                Quod, sunt tempora deleniti
+                                                facilis cum beatae?
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+
+                                <!-- About Item 2 -->
+                                <article class="col d-lg-none">
                                     <div class="about-info__wraps">
                                         <img
                                             src="./assets/img/about/avt1.jpg"
@@ -417,33 +442,8 @@
                                     </div>
                                 </article>
 
-                                <!-- About Item 1 -->
-                                <article class="col">
-                                    <div class="about-info__wraps">
-                                        <img
-                                            src="./assets/img/about/avt1.jpg"
-                                            alt=""
-                                            class="about-info__avt"
-                                        />
-                                        <div class="about-info__wrap">
-                                            <h3 class="about-info__name">
-                                                Hoang Bao Trung
-                                            </h3>
-                                            <p class="about-info__position">
-                                                Designer
-                                            </p>
-                                            <p class="about-info__desc">
-                                                Lorem ipsum dolor sit amet
-                                                consectetur adipisicing elit.
-                                                Quod, sunt tempora deleniti
-                                                facilis cum beatae?
-                                            </p>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <!-- About Item 1 -->
-                                <article class="col">
+                                <!-- About Item 3 -->
+                                <article class="col d-lg-none">
                                     <div class="about-info__wraps">
                                         <img
                                             src="./assets/img/about/avt1.jpg"
@@ -482,11 +482,13 @@
                         <h2 class="blog-content__title section-heading">
                             From Our Blog
                         </h2>
-                        <a href="#!" class="btn-border">All View Blog</a>
+                        <a href="#!" class="btn-border d-lg-none">
+                            All View Blog
+                        </a>
                     </section>
                 </div>
                 <div class="blog-info">
-                    <div class="row row-cols-3">
+                    <div class="row row-cols-3 row-cols-lg-1 gy-3">
                         <!-- Blog item 1 -->
                         <a href="#!" class="col">
                             <div class="blog-info__container">
@@ -511,7 +513,7 @@
                         </a>
 
                         <!-- Blog item 2 -->
-                        <a href="#!" class="col">
+                        <a href="#!" class="col d-lg-none">
                             <div class="blog-info__container">
                                 <div class="blog-info__wrap">
                                     <img
@@ -534,7 +536,7 @@
                         </a>
 
                         <!-- Blog item 3 -->
-                        <a href="#!" class="col">
+                        <a href="#!" class="col d-lg-none">
                             <div class="blog-info__container">
                                 <div class="blog-info__wrap">
                                     <img
@@ -557,6 +559,12 @@
                             </div>
                         </a>
                     </div>
+                    <a
+                        href="#!"
+                        class="btn-border btn-border--bot d-none d-lg-block"
+                    >
+                        All View Blog
+                    </a>
                 </div>
             </div>
 
@@ -604,7 +612,7 @@
                         </article>
 
                         <!-- Feedback Item 2 -->
-                        <article class="feedback-top__container">
+                        <article class="feedback-top__container d-lg-none">
                             <div class="feedback-top__wrap">
                                 <img
                                     src="./assets/img/feedback/feedback-avt2.jpg"
@@ -638,7 +646,7 @@
                         </article>
 
                         <!-- Feedback Item 3 -->
-                        <article class="feedback-top__container">
+                        <article class="feedback-top__container d-lg-none">
                             <div class="feedback-top__wrap">
                                 <img
                                     src="./assets/img/feedback/feedback-avt3.jpg"
@@ -694,7 +702,7 @@
                             Interested on a Demo Now?
                         </h2>
                         <p class="feedback-bottom__desc section-desc">
-                            By requesting a demo you agree to Doctor AI
+                            By requesting a demo you agree to Fresh X
                             <a href="#!" class="feedback-bottom__link"
                                 >Privacy Policy</a
                             >

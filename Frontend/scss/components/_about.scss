@@ -9,8 +9,16 @@
     margin-top: 100px;
     background: #e9f6ff;
 
+    @include abstracts.screen(lg) {
+        margin-top: 70px;
+    }
+
     &__inner {
         padding: 48px 0;
+
+        @include abstracts.screen(lg) {
+            padding: 28px 0;
+        }
     }
 
     &__title {

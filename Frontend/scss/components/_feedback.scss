@@ -7,6 +7,10 @@
 
 .feedback {
     margin-top: 150px;
+
+    @include abstracts.screen(lg) {
+        margin-top: 100px;
+    }
 }
 
 .feedback-content {
@@ -26,11 +30,17 @@
 }
 
 .feedback-top {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-top: 40px;
     border: 1px solid #a2e9fc;
     border-radius: 5px;
+
+    @include abstracts.screen(lg) {
+        grid-template-columns: 1fr;
+    }
 
     &__container {
         padding: 40px;
@@ -84,6 +94,22 @@
             width: 32%;
             margin: 0 auto;
             background: #fff;
+
+            @include abstracts.screen(xl) {
+                width: 50%;
+            }
+
+            @include abstracts.screen(lg) {
+                width: 60%;
+            }
+
+            @include abstracts.screen(md) {
+                width: 90%;
+            }
+
+            @include abstracts.screen(sm) {
+                width: 100%;
+            }
         }
     }
 
@@ -113,11 +139,13 @@
 }
 
 .feedback-bottom {
-    position: relative;
-    z-index: -1;
     padding: 320px 0 120px;
     margin-top: -150px;
     background: #e9f6ff;
+
+    @include abstracts.screen(xl) {
+        margin-top: -270px;
+    }
 
     &__title,
     &__desc {
@@ -127,6 +155,22 @@
 
     &__desc {
         width: 18%;
+
+        @include abstracts.screen(xl) {
+            width: 27%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 33%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 45%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 55%;
+        }
 
         &--bot {
             width: 100%;
@@ -141,5 +185,21 @@
         display: block;
         margin: 20px auto;
         width: 10.3%;
+
+        @include abstracts.screen(xl) {
+            width: 15%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 20%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 30%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 40%;
+        }
     }
 }

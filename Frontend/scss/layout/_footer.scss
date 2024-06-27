@@ -17,6 +17,18 @@
     border-radius: 0 0 20px 20px;
     background: #0fb5d9;
 
+    @include abstracts.screen(lg) {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    @include abstracts.screen(md) {
+        justify-content: center;
+        gap: 0;
+        padding-right: 0;
+    }
+
     &__img {
         height: 430px;
         position: relative;
@@ -33,12 +45,39 @@
         &:hover {
             background: #000 !important;
         }
+
+        @include abstracts.screen(xxl) {
+            width: 55%;
+        }
+
+        @include abstracts.screen(xl) {
+            width: 70%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 35%;
+        }
     }
 }
 
 .footer-top-content {
     margin-top: 50px;
     width: 80%;
+
+    @include abstracts.screen(xl) {
+        margin-top: 8px;
+    }
+
+    @include abstracts.screen(lg) {
+        padding: 0 52px;
+    }
+
+    @include abstracts.screen(md) {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
     &__title {
         color: #fff;
         font-size: 3.2rem;
@@ -59,6 +98,32 @@
     @extend %flexItemCenter;
     margin-top: 65px;
 
+    @include abstracts.screen(lg) {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    @include abstracts.screen(md) {
+        align-items: flex-start;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+
+        @include abstracts.screen(lg) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @include abstracts.screen(md) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
+    }
+
     &__slogan {
         width: 65%;
         margin-top: 30px;
@@ -66,6 +131,23 @@
         font-size: 2.4rem;
         font-weight: 700;
         line-height: 1.42;
+
+        @include abstracts.screen(xxl) {
+            width: 70%;
+        }
+
+        @include abstracts.screen(xl) {
+            width: 100%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 60%;
+            margin-top: 0;
+        }
+
+        @include abstracts.screen(md) {
+            width: 100%;
+        }
     }
 }
 
@@ -74,6 +156,20 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 115px;
     margin-left: 150px;
+
+    @include abstracts.screen(xxl) {
+        margin-left: 120px;
+        gap: 95px;
+        flex-shrink: 0;
+    }
+
+    @include abstracts.screen(lg) {
+        margin-left: 0;
+    }
+
+    @include abstracts.screen(md) {
+        grid-template-columns: 1fr;
+    }
 
     &__title {
         margin-left: 10px;
@@ -111,6 +207,11 @@
     margin-top: 40px;
     padding: 20px 0;
     border-top: 1px solid #0fb4d974;
+
+    @include abstracts.screen(md) {
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
 
     &__text {
         color: #0c6a7f7c;
