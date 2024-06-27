@@ -175,7 +175,7 @@
                             </article>
                         </div>
                     </article>
-                    <article class="col-9">
+                    <!-- <article class="col-9">
                         <div class="chat-box">
                             <div
                                 id="chat-box__message"
@@ -318,7 +318,174 @@
                                 ></div>
                             </div>
                         </div>
+                    </article> -->
+
+                    <article class="col-9">
+                        <div class="chat-box">
+                            <div
+                                id="chat-box__message"
+                                class="chat-box__message"
+                            >
+                                <div id="chat" class="chat-message">
+                                    <p
+                                        id="messageUser"
+                                        class="chat-message__text"
+                                    >
+                                        Xin chào
+                                    </p>
+                                    <p
+                                        id="chat-box__wrap"
+                                        class="chat-message__text chat-message__text--AI"
+                                    >
+                                        <img
+                                            src="./assets/img/logo.png"
+                                            alt=""
+                                            class="chat-box__logo"
+                                        />
+                                        <br />
+                                        Chào bạn, tôi có thể giúp gì được cho
+                                        bạn
+                                    </p>
+                                </div>
+                                <form action="" class="chat-box__form">
+                                    <input
+                                        class="chat-box__input"
+                                        type="text"
+                                        id="inputMessage"
+                                        placeholder="Type a message..."
+                                        autofocus
+                                    />
+                                    <div class="chat-box__icons">
+                                        <img
+                                            id="pushImage"
+                                            src="./assets/icons/image.svg"
+                                            alt=""
+                                            class="chat-box__icon"
+                                        />
+                                        <img
+                                            src="./assets/icons/cut.svg"
+                                            alt=""
+                                            class="chat-box__icon"
+                                        />
+                                    </div>
+                                    <div class="chat-box__icons">
+                                        <img
+                                            id="mic"
+                                            src="./assets/icons/mic.svg"
+                                            alt=""
+                                            class="chat-box__icon"
+                                        />
+                                        <button type="button" id="sendButton">
+                                            <img
+                                                id="send"
+                                                src="./assets/icons/send.svg"
+                                                alt=""
+                                                class="chat-box__icon"
+                                            />
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div>
+                                <button id="out-chat" class="chat-box__out">
+                                    <img
+                                        class="chat-box__icon-out"
+                                        src="./assets/icons/logout.svg"
+                                        alt=""
+                                    />
+                                </button>
+                                <div
+                                    id="diagnostic"
+                                    class="chat-box__container"
+                                ></div>
+                            </div>
+                        </div>
                     </article>
+
+                    <script>
+                        document
+                            .getElementById("sendButton")
+                            .addEventListener("click", function () {
+                                const userInput = document
+                                    .getElementById("inputMessage")
+                                    .value.trim();
+                                console.log("User input:", userInput); // In ra giá trị của userInput
+                                if (userInput !== "") {
+                                    addUserMessage(userInput);
+                                    console.log("Sending request to server...");
+                                    fetch("http://127.0.0.1:5000/chat", {
+                                        method: "POST",
+                                        headers: {
+                                            "Content-Type": "application/json",
+                                        },
+                                        body: JSON.stringify({
+                                            message: userInput,
+                                            chat_history: getChatHistory(),
+                                        }),
+                                    })
+                                        .then((response) => {
+                                            if (!response.ok) {
+                                                throw new Error(
+                                                    "Network response was not ok"
+                                                );
+                                            }
+                                            return response.json();
+                                        })
+                                        .then((data) => {
+                                            console.log(
+                                                "Received response from server:",
+                                                data
+                                            );
+                                            addAIMessage(data.response);
+                                            document.getElementById(
+                                                "inputMessage"
+                                            ).value = "";
+                                        })
+                                        .catch((error) => {
+                                            console.error("Error:", error);
+                                        });
+                                } else {
+                                    console.log(
+                                        "User input is empty, not sending request."
+                                    );
+                                }
+                            });
+
+                        function addUserMessage(message) {
+                            const chatHistory = document.getElementById("chat");
+                            const userMessageDiv = document.createElement("p");
+                            userMessageDiv.className = "chat-message__text";
+                            userMessageDiv.textContent = message;
+                            chatHistory.appendChild(userMessageDiv);
+                        }
+
+                        function addAIMessage(message) {
+                            const chatHistory = document.getElementById("chat");
+                            const aiMessageDiv = document.createElement("p");
+                            aiMessageDiv.className =
+                                "chat-message__text chat-message__text--AI";
+                            aiMessageDiv.textContent = message;
+                            chatHistory.appendChild(aiMessageDiv);
+                        }
+
+                        function getChatHistory() {
+                            const chatHistory = [];
+                            document
+                                .querySelectorAll("#chat > p")
+                                .forEach((p) => {
+                                    const role = p.className.includes(
+                                        "chat-message__text--AI"
+                                    )
+                                        ? "ai"
+                                        : "human";
+                                    chatHistory.push({
+                                        role,
+                                        content: p.textContent,
+                                    });
+                                });
+                            return chatHistory;
+                        }
+                    </script>
                 </div>
             </div>
         </main>

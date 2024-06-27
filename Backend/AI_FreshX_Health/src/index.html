@@ -1,0 +1,207 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FreshX Chat</title>
+    </head>
+    <body>
+        <h1>FreshX</h1>
+        <div id="chat-container">
+            <div id="chat-history"></div>
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Type a message..."
+                autofocus
+            />
+            <button id="send-button">Send</button>
+        </div>
+        <script>
+            document
+                .getElementById("send-button")
+                .addEventListener("click", function () {
+                    const userInput =
+                        document.getElementById("user-input").value;
+                    if (userInput.trim() !== "") {
+                        addUserMessage(userInput);
+                        fetch("/chat", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({ message: userInput }),
+                        })
+                            .then((response) => response.json())
+                            .then((data) => {
+                                addAIMessage(data.response);
+                                document.getElementById("user-input").value =
+                                    "";
+                            });
+                    }
+                });
+
+            function addUserMessage(message) {
+                const chatHistory = document.getElementById("chat-history");
+                const userMessageDiv = document.createElement("div");
+                userMessageDiv.className = "user-message";
+                userMessageDiv.textContent = message;
+                chatHistory.appendChild(userMessageDiv);
+            }
+
+            function addAIMessage(message) {
+                const chatHistory = document.getElementById("chat-history");
+                const aiMessageDiv = document.createElement("div");
+                aiMessageDiv.className = "ai-message";
+                aiMessageDiv.textContent = message;
+                chatHistory.appendChild(aiMessageDiv);
+            }
+        </script>
+        <style>
+            #chat-container {
+                width: 500px;
+                margin: 0 auto;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            #chat-history {
+                height: 400px;
+                overflow-y: scroll;
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 10px;
+            }
+            .user-message {
+                text-align: right;
+                margin: 5px;
+                padding: 5px;
+                background-color: #d1e7dd;
+                border-radius: 5px;
+            }
+            .ai-message {
+                text-align: left;
+                margin: 5px;
+                padding: 5px;
+                background-color: #f8d7da;
+                border-radius: 5px;
+            }
+        </style>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FreshX Chat</title>
+    </head>
+    <body>
+        <h1>FreshX</h1>
+        <div id="chat-container">
+            <div id="chat-history"></div>
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Type a message..."
+                autofocus
+            />
+            <button id="send-button">Send</button>
+        </div>
+        <script>
+            document
+                .getElementById("send-button")
+                .addEventListener("click", function () {
+                    const userInput =
+                        document.getElementById("user-input").value;
+                    if (userInput.trim() !== "") {
+                        addUserMessage(userInput);
+                        fetch("http://127.0.0.1:5000/chat", {
+                            // Đảm bảo URL là đúng
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                message: userInput,
+                                chat_history: getChatHistory(),
+                            }),
+                        })
+                            .then((response) => {
+                                if (!response.ok) {
+                                    throw new Error(
+                                        "Network response was not ok"
+                                    );
+                                }
+                                return response.json();
+                            })
+                            .then((data) => {
+                                addAIMessage(data.response);
+                                document.getElementById("user-input").value =
+                                    "";
+                            })
+                            .catch((error) => {
+                                console.error("Error:", error);
+                            });
+                    }
+                });
+
+            function addUserMessage(message) {
+                const chatHistory = document.getElementById("chat-history");
+                const userMessageDiv = document.createElement("div");
+                userMessageDiv.className = "user-message";
+                userMessageDiv.textContent = message;
+                chatHistory.appendChild(userMessageDiv);
+            }
+
+            function addAIMessage(message) {
+                const chatHistory = document.getElementById("chat-history");
+                const aiMessageDiv = document.createElement("div");
+                aiMessageDiv.className = "ai-message";
+                aiMessageDiv.textContent = message;
+                chatHistory.appendChild(aiMessageDiv);
+            }
+
+            function getChatHistory() {
+                const chatHistory = [];
+                document
+                    .querySelectorAll("#chat-history > div")
+                    .forEach((div) => {
+                        const role =
+                            div.className === "user-message" ? "human" : "ai";
+                        chatHistory.push({ role, content: div.textContent });
+                    });
+                return chatHistory;
+            }
+        </script>
+        <style>
+            #chat-container {
+                width: 500px;
+                margin: 0 auto;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            #chat-history {
+                height: 400px;
+                overflow-y: scroll;
+                border-bottom: 1px solid #ccc;
+                margin-bottom: 10px;
+            }
+            .user-message {
+                text-align: right;
+                margin: 5px;
+                padding: 5px;
+                background-color: #d1e7dd;
+                border-radius: 5px;
+            }
+            .ai-message {
+                text-align: left;
+                margin: 5px;
+                padding: 5px;
+                background-color: #f8d7da;
+                border-radius: 5px;
+            }
+        </style>
+    </body>
+</html>
