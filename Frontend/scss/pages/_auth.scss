@@ -50,7 +50,7 @@
             font-size: 1.8rem;
             font-weight: 500;
             line-height: 1.44;
-            color: #ebebeb;
+            color: #eb5b27;
 
             @include abstracts.screen(md) {
                 font-size: 1.5rem;
@@ -97,7 +97,7 @@
         font-size: 3rem;
         font-weight: 500;
         line-height: 1.46;
-        color: var(--auth-heading-color);
+        color: #0fb5d9;
 
         @include abstracts.screen(md) {
             margin-top: 30px;
@@ -139,7 +139,7 @@
         font-size: 1.5rem;
         font-weight: 500;
         line-height: 1.46;
-        color: #0071dc;
+        color: #eb5b27;
 
         @include abstracts.screen(md) {
             font-size: 1.4rem;

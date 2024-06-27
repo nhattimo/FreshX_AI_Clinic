@@ -6,7 +6,7 @@
 }
 
 .footer {
-    background: #151e66;
+    background: #fff;
 }
 
 .footer-top {
@@ -15,7 +15,7 @@
     height: 200px;
     padding-right: 40px;
     border-radius: 0 0 20px 20px;
-    background: #4157ff;
+    background: #0fb5d9;
 
     &__img {
         height: 430px;
@@ -29,10 +29,9 @@
         width: 43%;
         padding: 12px 22px !important;
         margin-top: 50px;
-        background: #2ea4ff !important;
 
         &:hover {
-            background: #151e66 !important;
+            background: #000 !important;
         }
     }
 }
@@ -63,7 +62,7 @@
     &__slogan {
         width: 65%;
         margin-top: 30px;
-        color: #2ea4ff;
+        color: #0fb5d9;
         font-size: 2.4rem;
         font-weight: 700;
         line-height: 1.42;
@@ -79,7 +78,7 @@
     &__title {
         margin-left: 10px;
         margin-bottom: 20px;
-        color: #fff;
+        color: #0fb5d9;
         font-size: 1.8rem;
         font-weight: 700;
         line-height: 1.56;
@@ -91,7 +90,7 @@
 
     &__link {
         opacity: 0.5;
-        color: #d8eeff;
+        color: #000;
         border-radius: 4px;
         padding: 5px 10px;
         font-size: 1.4rem;
@@ -99,7 +98,8 @@
         transition: all 0.5s ease;
 
         &:hover {
-            background: #4157ff;
+            background: #0fb5d9;
+            color: #fff;
             opacity: 1;
         }
     }
@@ -110,10 +110,10 @@
     justify-content: space-between;
     margin-top: 40px;
     padding: 20px 0;
-    border-top: 1px solid rgba(210, 210, 245, 0.2);
+    border-top: 1px solid #0fb4d974;
 
     &__text {
-        color: #d8eeff;
+        color: #0c6a7f7c;
         font-size: 1.4rem;
         font-weight: 500;
         line-height: 1.57;
@@ -128,7 +128,7 @@
         padding: 5px;
         width: 26px;
         height: 26px;
-        background: #2ea4ff;
+        background: #0fb5d9;
         border: 1px solid #000;
         border-radius: 4px;
         transition: 0.25s;

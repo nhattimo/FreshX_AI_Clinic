@@ -376,12 +376,11 @@ function datLich() {
                     <em>Địa chỉ:</em> 123 Lê
                     Đình Lý - Đà Nẵng
                 </p>
-                <a
-                    href="./sign-in.html"
+                <button
                     class="chat-box__btn"
                 >
                     Đặt lịch ngay
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -403,12 +402,11 @@ function datLich() {
                     <em>Địa chỉ:</em> Nguyễn
                     Hữu Thọ - Đà Nẵng
                 </p>
-                <a
-                    href="./sign-in.html"
+                <button
                     class="chat-box__btn"
                 >
                     Đặt lịch ngay
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -430,12 +428,11 @@ function datLich() {
                     <em>Địa chỉ:</em> Đinh
                     Gia Trinh - Đà Nẵng
                 </p>
-                <a
-                    href="./sign-in.html"
+                <button
                     class="chat-box__btn"
                 >
                     Đặt lịch ngay
-                </a>
+                </button>
             </div>
         </div>
     </div>
@@ -443,6 +440,21 @@ function datLich() {
 }
 document.getElementById("datLich").onclick = function () {
     document.getElementById("diagnostic").innerHTML = datLich();
+
+    var chatBox = [];
+    chatBox = document.getElementsByClassName("chat-box__btn");
+    for (let index = 0; index < chatBox.length; index++) {
+        const element = chatBox[index];
+        element.onclick = function (e) {
+            var textEven =
+                e.target.parentElement.parentElement.querySelector(
+                    ".chat-box__title"
+                ).innerText;
+            document.getElementById("modal-message").innerHTML += textEven;
+
+            document.getElementById("modal-message").style.display = "block";
+        };
+    }
 };
 
 //Push Image
@@ -477,33 +489,43 @@ function message(text) {
 >${text}</p>`;
 }
 
+let i = 0;
 document.getElementById("send").onclick = function () {
     let mess = document.getElementById("inputMessage").value;
     document.getElementById("chat-box__wrap").style.display = "none";
     document.getElementById("inputMessage").value = "";
     document.getElementById("chat").innerHTML += message(mess);
+
+    document.getElementById("chat").innerHTML += messageAI(fakeAI[i]);
+    i++;
+
+    document.getElementById("dauBung").onclick = function () {
+        document.getElementById("chat-block").style.display = "flex";
+    };
 };
 
-//AI
-// function messageAI() {
-//     return ` <p
-//     id="messageAI"
-//     class="chat-message__text chat-message__text--AI"
-// >dahdha</p>`;
-// }
-// messageAI();
-
-// document.getElementById("messageAI") = function() {
-//     if (document.getElementById("inputMessage").value !== 0) {
-//         return null
-//     } else {
-
-//     }
-// }
+//Fake AI
+function messageAI(text) {
+    return `<p
+    id="messageAI"
+    class="chat-message__text chat-message__text--AI"
+>${text}</p>`;
+}
 
 let fakeAI = [
     "Chào bạn, tôi có thể giúp gì cho bạn ?",
     "Bạn có thể cho tôi biết bạn bị đau ở vị trí nào không ?",
     'Dựa vào triệu chứng bạn đưa ra, chúng tôi đã phát hiện ra rằng bạn có thể bị mắc phải một số vấn đề liên quan đến đau bụng dưới. Chúng tôi khuyên bạn nên tham khảo ý kiến của bác sĩ để được kiểm tra và chẩn đoán chính xác. Ngoài ra, bạn cũng có thể tham khảo một số lời khuyên sau đây: "Rửa tay sạch trước khi ăn và chế biến thực phẩm". Chúc bạn sức khỏe!',
+    'Nhấn vào đây để xem mô tả <button id="dauBung" class="chat-message__btn">Nhấn vào đây</button>',
     "Cảm ơn bạn, bạn có thể xem phần chuẩn đoán ở bên trái để biết rõ hơn bệnh của mình nhé",
 ];
+
+//Modal
+document.addEventListener("click", ({ target }) => {
+    if (
+        !target.closest(".chat-box__btn") &&
+        document.getElementById("modal-message").style.display == "block"
+    ) {
+        document.getElementById("modal-message").style.display = "none";
+    }
+});

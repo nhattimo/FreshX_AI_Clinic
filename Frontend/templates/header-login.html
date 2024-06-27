@@ -30,14 +30,12 @@
                     alt=""
                     class="header-action__avt"
                 />
-                <h3 class="header-action__name">Nguyễn Văn Nhật</h3>
             </a>
-            <button class="header-action__notice">
-                <img
-                    src="./assets/icons/bell.svg"
-                    alt=""
-                    class="header-action__icon"
-                />
+            <button
+                class="header-action__notice js-toggle"
+                toggle-target="#modal-message"
+            >
+                <img src="./assets/icons/bell.svg" alt="" />
             </button>
             <a href="./index.html" class="header-action__out">
                 <img
@@ -47,5 +45,15 @@
                 />
             </a>
         </div>
+    </div>
+</div>
+
+<div id="modal-message" class="modal hide">
+    <div class="modal-container">
+        <img
+            src="./assets/icons/arrow-up.png"
+            alt=""
+            class="modal-container__icon"
+        />
     </div>
 </div>
