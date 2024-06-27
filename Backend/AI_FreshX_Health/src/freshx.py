@@ -138,15 +138,33 @@ def get_symptoms_advice(symptoms: list, db: SQLDatabase):
     """
     return db.run(query)
 
-def get_response_with_advice(user_query: str, db: SQLDatabase, chat_history: list):
+def get_response_with_advice(user_query: str, chat_history: list):
     symptoms = extract_symptoms(user_query)
     if not symptoms:
-        response = "Xin lỗi, tôi không nhận ra triệu chứng nào trong câu hỏi của bạn. Bạn có thể mô tả cụ thể hơn không?"
+        response = """
+        Xin lỗi, tôi không thể đưa ra chẩn đoán chính xác cho tình trạng của bạn qua trò chuyện này. Để đảm bảo an toàn và sức khỏe của bạn, tôi khuyên bạn nên đến trực tiếp Phòng khám FreshX tại:
+
+        Địa chỉ: 116 Nguyễn Huy Tưởng, Hòa An, Liên Chiểu, Đà Nẵng
+        Số điện thoại: 0857075999
+
+        Bác sĩ tại phòng khám sẽ kiểm tra và đưa ra chẩn đoán cùng phương án điều trị phù hợp nhất cho bạn.
+
+        Bạn có cần hỗ trợ thêm điều gì khác không?
+        """
+        response += "\n"
+        response += get_clinic_suggestion()
     else:
-        advice = get_symptoms_advice(symptoms, db)
+        advice = get_symptoms_advice(symptoms)
         response = f"Dựa trên triệu chứng của bạn, tôi đề xuất các chẩn đoán và lời khuyên sau:\n{advice}"
     return response
 
+def get_clinic_suggestion():
+    clinic_info = """
+    - Phòng khám FreshX
+    - Địa chỉ: 116 Nguyễn Huy Tưởng, Hòa An, Liên Chiểu, Đà Nẵng
+    - Số điện thoại: 0857075999
+    """
+    return clinic_info
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.get_json()

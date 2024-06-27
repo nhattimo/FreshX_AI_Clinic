@@ -481,44 +481,43 @@ document.getElementById("mic").onclick = function () {
     recognization.start();
 };
 
-//Chat message
-function message(text) {
-    return `<p
-    id="messageUser"
-    class="chat-message__text"
->${text}</p>`;
-}
+// //Chat message
+// function message(text) {
+//     return `<p
+//     id="messageUser"
+//     class="chat-message__text"
+// >${text}</p>`;
+// }
 
-let i = 0;
-document.getElementById("send").onclick = function () {
-    let mess = document.getElementById("inputMessage").value;
-    document.getElementById("chat-box__wrap").style.display = "none";
-    document.getElementById("inputMessage").value = "";
-    document.getElementById("chat").innerHTML += message(mess);
+// document.getElementById("send").onclick = function () {
+//     let mess = document.getElementById("inputMessage").value;
+//     document.getElementById("chat-box__wrap").style.display = "none";
+//     document.getElementById("inputMessage").value = "";
+//     document.getElementById("chat").innerHTML += message(mess);
 
-    document.getElementById("chat").innerHTML += messageAI(fakeAI[i]);
-    i++;
+//     document.getElementById("chat").innerHTML += messageAI(fakeAI[i]);
+//     i++;
 
-    document.getElementById("dauBung").onclick = function () {
-        document.getElementById("chat-block").style.display = "flex";
-    };
-};
+//     document.getElementById("dauBung").onclick = function () {
+//         document.getElementById("chat-block").style.display = "flex";
+//     };
+// };
 
-//Fake AI
-function messageAI(text) {
-    return `<p
-    id="messageAI"
-    class="chat-message__text chat-message__text--AI"
->${text}</p>`;
-}
+// //Fake AI
+// function messageAI(text) {
+//     return `<p
+//     id="messageAI"
+//     class="chat-message__text chat-message__text--AI"
+// >${text}</p>`;
+// }
 
-let fakeAI = [
-    "Chào bạn, tôi có thể giúp gì cho bạn ?",
-    "Bạn có thể cho tôi biết bạn bị đau ở vị trí nào không ?",
-    'Dựa vào triệu chứng bạn đưa ra, chúng tôi đã phát hiện ra rằng bạn có thể bị mắc phải một số vấn đề liên quan đến đau bụng dưới. Chúng tôi khuyên bạn nên tham khảo ý kiến của bác sĩ để được kiểm tra và chẩn đoán chính xác. Ngoài ra, bạn cũng có thể tham khảo một số lời khuyên sau đây: "Rửa tay sạch trước khi ăn và chế biến thực phẩm". Chúc bạn sức khỏe!',
-    'Nhấn vào đây để xem mô tả <button id="dauBung" class="chat-message__btn">Nhấn vào đây</button>',
-    "Cảm ơn bạn, bạn có thể xem phần chuẩn đoán ở bên trái để biết rõ hơn bệnh của mình nhé",
-];
+// let fakeAI = [
+//     "Chào bạn, tôi có thể giúp gì cho bạn ?",
+//     "Bạn có thể cho tôi biết bạn bị đau ở vị trí nào không ?",
+//     'Dựa vào triệu chứng bạn đưa ra, chúng tôi đã phát hiện ra rằng bạn có thể bị mắc phải một số vấn đề liên quan đến đau bụng dưới. Chúng tôi khuyên bạn nên tham khảo ý kiến của bác sĩ để được kiểm tra và chẩn đoán chính xác. Ngoài ra, bạn cũng có thể tham khảo một số lời khuyên sau đây: "Rửa tay sạch trước khi ăn và chế biến thực phẩm". Chúc bạn sức khỏe!',
+//     'Nhấn vào đây để xem mô tả <button id="dauBung" class="chat-message__btn">Nhấn vào đây</button>',
+//     "Cảm ơn bạn, bạn có thể xem phần chuẩn đoán ở bên trái để biết rõ hơn bệnh của mình nhé",
+// ];
 
 //Modal
 document.addEventListener("click", ({ target }) => {
