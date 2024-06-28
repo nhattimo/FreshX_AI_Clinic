@@ -99,8 +99,10 @@ def get_response(user_query: str, db: SQLDatabase, chat_history: list):
     # 2. Định nghĩa mẫu phản hồi
     # trong đó chứa các thông tin cần thiết để AI hiểu và xử lý câu hỏi của người dùng, tạo truy vấn SQL và phản hồi lại một cách tự nhiên
     template = """
-    Bạn là một trợ lý ảo tại một phòng khám. Bạn đang tương tác với một người dùng, người đang hỏi bạn các câu hỏi về cơ sở dữ liệu của phòng khám để nhận tư vấn sức khỏe.
-    Dựa trên sơ đồ bảng dưới đây, câu hỏi của người dùng, truy vấn SQL và phản hồi SQL, hãy viết một phản hồi tự nhiên.
+    Bạn là một trợ lý ảo tên là FreshX tại một phòng khám FreshX . 
+    Bạn đang tương tác với một người dùng, người đang hỏi bạn các câu hỏi liên qua đến bệnh tình và các bệnh tình đó sẽ có trong cơ sở dữ liệu của phòng khám để nhận tư vấn sức khỏe.
+    Dựa trên sơ đồ bảng dưới đây, câu hỏi của người dùng, truy vấn SQL và phản hồi SQL, hãy viết một phản hồi tự nhiên. 
+    Bạn có thể tự mình thêm vào những thứ tốt đẹp cho người dùng. phản hồi của bạn phải thật là tốt
     <SCHEMA>{schema}</SCHEMA>
 
     Lịch sử hội thoại: {chat_history}
@@ -156,7 +158,7 @@ def get_symptoms_advice(symptoms: str, db: SQLDatabase):
         chu_y ON c.ma_chan_doan = chu_y.ma_chan_doan
     WHERE 
         tccd.ma_trieu_chung IN (SELECT ma_trieu_chung FROM trieu_chung WHERE ten_trieu_chung LIKE '%{symptoms}%')
-    LIMIT 1;
+    ;
     """
     return db.run(query)
 
