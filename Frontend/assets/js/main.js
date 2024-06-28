@@ -481,7 +481,7 @@ document.getElementById("mic").onclick = function () {
     recognization.start();
 };
 
-// //Chat message
+//Chat message
 // function message(text) {
 //     return `<p
 //     id="messageUser"
@@ -489,6 +489,7 @@ document.getElementById("mic").onclick = function () {
 // >${text}</p>`;
 // }
 
+// let i = [0];
 // document.getElementById("send").onclick = function () {
 //     let mess = document.getElementById("inputMessage").value;
 //     document.getElementById("chat-box__wrap").style.display = "none";
@@ -503,7 +504,7 @@ document.getElementById("mic").onclick = function () {
 //     };
 // };
 
-// //Fake AI
+//Fake AI
 // function messageAI(text) {
 //     return `<p
 //     id="messageAI"
