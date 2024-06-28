@@ -7,6 +7,10 @@
 
 .blog {
     margin-top: 120px;
+
+    @include abstracts.screen(lg) {
+        margin-top: 70px;
+    }
 }
 
 .blog-content {
@@ -31,6 +35,10 @@
 
 .blog-info {
     margin-top: 100px;
+
+    @include abstracts.screen(lg) {
+        margin-top: 52px;
+    }
 
     &__container {
         @extend %flexItemCenter;
@@ -83,12 +91,20 @@
         font-size: 2rem;
         line-height: 1.5;
         transition: 0.25s ease;
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+        }
     }
 
     &__desc {
         width: 70%;
         margin-top: 10px;
         font-size: 1.4rem;
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+        }
     }
 }
 

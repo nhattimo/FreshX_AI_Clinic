@@ -8,6 +8,10 @@
 .service {
     margin-top: 198px;
 
+    @include abstracts.screen(lg) {
+        margin-top: 70px;
+    }
+
     &-containers {
         margin-top: 100px;
     }
@@ -19,6 +23,22 @@
 
     &__title {
         width: 30%;
+
+        @include abstracts.screen(xl) {
+            width: 35%;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 55%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 60%;
+        }
+
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
 
         &::after {
             content: "";
@@ -83,6 +103,15 @@
     padding: 60px 0;
     border-top: 1px solid #d8eeff;
     border-bottom: 1px solid #d8eeff;
+
+    @include abstracts.screen(lg) {
+        margin-top: 50px;
+    }
+
+    @include abstracts.screen(md) {
+        grid-template-columns: 1fr;
+        row-gap: 30px;
+    }
 }
 
 .service-data {
@@ -115,4 +144,8 @@
 
 .service-data + .service-data {
     border-left: 1px solid #d8eeff;
+
+    @include abstracts.screen(md) {
+        border-left: none;
+    }
 }

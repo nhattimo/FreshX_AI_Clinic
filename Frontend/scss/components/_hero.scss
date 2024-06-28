@@ -6,16 +6,40 @@
 }
 
 .hero {
+    position: relative;
     background: #e9f6ff;
 
     &__inner {
         @extend %flexItemCenter;
+
+        @include abstracts.screen(lg) {
+            flex-direction: column-reverse;
+        }
     }
 }
 
 .hero-content {
-    width: 50%;
+    width: 60%;
     padding-left: 100px;
+
+    @include abstracts.screen(xxl) {
+        width: 80%;
+    }
+
+    @include abstracts.screen(xl) {
+        width: 100%;
+    }
+
+    @include abstracts.screen(lg) {
+        position: relative;
+        margin-top: 150px;
+        padding-bottom: 30px;
+    }
+
+    @include abstracts.screen(md) {
+        margin-top: 18px;
+        padding-left: 0;
+    }
 
     &__title {
         width: 50%;
@@ -30,17 +54,57 @@
         font-size: 6rem;
         font-weight: 600;
         line-height: 1.1;
+
+        @include abstracts.screen(xxl) {
+            font-size: 5.2rem;
+        }
+
+        @include abstracts.screen(xl) {
+            font-size: 4.6rem;
+        }
+
+        @include abstracts.screen(lg) {
+            font-size: 5.8rem;
+        }
+
+        @include abstracts.screen(md) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__desc {
         width: 70%;
         margin-top: 30px;
+
+        @include abstracts.screen(lg) {
+            width: 50%;
+        }
+
+        @include abstracts.screen(md) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__action {
         display: inline-block;
-        width: 136px;
+        width: 132px;
         margin-top: 40px;
+
+        @include abstracts.screen(lg) {
+            position: absolute;
+            bottom: 40px;
+            right: 50px;
+        }
+
+        @include abstracts.screen(md) {
+            position: relative;
+            bottom: initial;
+            right: initial;
+            left: 50%;
+            translate: -50%;
+        }
     }
 }
 
@@ -51,6 +115,22 @@
     background-image: url(../../assets/img/hero/bg.jpg);
     background-size: cover;
 
+    @include abstracts.screen(xxl) {
+        width: 70%;
+    }
+
+    @include abstracts.screen(xl) {
+        width: 95%;
+    }
+
+    @include abstracts.screen(lg) {
+        width: 100%;
+    }
+
+    @include abstracts.screen(md) {
+        height: 532px;
+    }
+
     &__avt {
         height: 550px;
 
@@ -60,6 +140,10 @@
         translate: -50%;
         object-fit: cover;
         z-index: 1;
+
+        @include abstracts.screen(sm) {
+            width: 100%;
+        }
     }
 
     &__icons {
@@ -130,6 +214,15 @@
     border-radius: 10px;
     margin: 0 auto;
     box-shadow: 0 20px 20px -7px rgba(28, 46, 187, 0.1);
+
+    @include abstracts.screen(xl) {
+        width: 85%;
+    }
+
+    @include abstracts.screen(lg) {
+        bottom: 310px;
+        width: 100%;
+    }
 
     &__inner {
         @extend %flexItemCenter;

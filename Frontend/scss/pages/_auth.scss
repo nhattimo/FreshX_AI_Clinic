@@ -73,12 +73,6 @@
             position: fixed;
             inset: 0;
             z-index: 1;
-            transition: translate 0.3s;
-            overflow-y: auto;
-
-            &.hide {
-                translate: 100%;
-            }
         }
 
         &-inner {

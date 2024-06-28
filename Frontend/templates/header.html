@@ -2,9 +2,10 @@
     <div class="header__inner">
         <a href="./" class="logo">
             <img src="./assets/img/logo.png" alt="" class="logo__img" />
-            <h1 class="logo__text">GenAI</h1>
+            <h1 class="logo__text">Fresh X</h1>
         </a>
-        <nav class="header-navbar">
+        <!-- Navbar PC -->
+        <nav class="header-navbar d-lg-none">
             <ul class="header-navbar__list">
                 <li class="header-navbar__item">
                     <a href="./" class="header-navbar__link">Home</a>
@@ -22,6 +23,16 @@
                 </li>
             </ul>
         </nav>
+
+        <!-- Navigator mobile/tablet -->
+        <div class="navbar-mobile d-none d-lg-flex">
+            <div class="navbar-mobile__wrap">
+                <button class="js-toggle" toggle-target="#navbar">
+                    <img src="./assets/icons/menu.svg" alt="" />
+                </button>
+                <p class="navbar-mobile__text">Menu</p>
+            </div>
+        </div>
         <div class="header-action">
             <button class="header-action__notice">
                 <img
@@ -30,7 +41,32 @@
                     class="header-action__img"
                 />
             </button>
-            <a href="./sign-in.html" class="header-action__btn btn">Sign In</a>
+            <a href="./sign-in.html" class="header-action__btn btn d-sm-none">Sign In</a>
         </div>
     </div>
+    </div>
+</div>
+
+<!-- Modal: navbar mobile -->
+<div>
+    <div id="navbar" class="mobile hide d-none d-lg-block">
+        <ul class="header-navbar__list">
+            <li class="header-navbar__item">
+                <a href="./" class="header-navbar__link">Home</a>
+            </li>
+            <li class="header-navbar__item">
+                <a href="#!" class="header-navbar__link">About us</a>
+            </li>
+            <li class="header-navbar__item">
+                <a href="./sign-in.html" class="header-navbar__link"
+                    >Chat</a
+                >
+            </li>
+            <li class="header-navbar__item">
+                <a href="#!" class="header-navbar__link">FAQ</a>
+            </li>
+        </ul>
+        <a href="./sign-in.html" class="header-action__btn btn d-none d-sm-block">Sign In</a>
+    </div>
+    <div class="mobile__overlay js-toggle" toggle-target="#navbar"></div> 
 </div>
