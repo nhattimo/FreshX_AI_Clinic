@@ -209,3 +209,11 @@ $error-color: #ed4337;
         }
     }
 }
+
+.form-profile__bottom {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 18px;
+}
