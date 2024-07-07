@@ -260,51 +260,49 @@
                     </article>
 
                     <script>
+                        function sendMessage() {
+                            const userInput = document
+                                .getElementById("inputMessage")
+                                .value.trim();
+                            document.getElementById("inputMessage").value = "";
+                            if (userInput !== "") {
+                                addUserMessage(userInput);
+                                fetch("http://127.0.0.1:5000/chat", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        message: userInput,
+                                        chat_history: getChatHistory(),
+                                    }),
+                                })
+                                    .then((response) => {
+                                        if (!response.ok) {
+                                            throw new Error(
+                                                "Network response was not ok"
+                                            );
+                                        }
+                                        return response.json();
+                                    })
+                                    .then((data) => {
+                                        addAIMessage(data.response);
+                                    })
+                                    .catch((error) => {
+                                        console.error("Error:", error);
+                                    });
+                            }
+                        }
+
                         document
                             .getElementById("sendButton")
-                            .addEventListener("click", function () {
-                                const userInput = document
-                                    .getElementById("inputMessage")
-                                    .value.trim();
-                                console.log("User input:", userInput); // In ra giá trị của userInput
-                                if (userInput !== "") {
-                                    addUserMessage(userInput);
-                                    console.log("Sending request to server...");
-                                    fetch("http://127.0.0.1:5000/chat", {
-                                        method: "POST",
-                                        headers: {
-                                            "Content-Type": "application/json",
-                                        },
-                                        body: JSON.stringify({
-                                            message: userInput,
-                                            chat_history: getChatHistory(),
-                                        }),
-                                    })
-                                        .then((response) => {
-                                            if (!response.ok) {
-                                                throw new Error(
-                                                    "Network response was not ok"
-                                                );
-                                            }
-                                            return response.json();
-                                        })
-                                        .then((data) => {
-                                            console.log(
-                                                "Received response from server:",
-                                                data
-                                            );
-                                            addAIMessage(data.response);
-                                            document.getElementById(
-                                                "inputMessage"
-                                            ).value = "";
-                                        })
-                                        .catch((error) => {
-                                            console.error("Error:", error);
-                                        });
-                                } else {
-                                    console.log(
-                                        "User input is empty, not sending request."
-                                    );
+                            .addEventListener("click", sendMessage);
+                        document
+                            .getElementById("inputMessage")
+                            .addEventListener("keydown", function (event) {
+                                if (event.key === "Enter") {
+                                    event.preventDefault();
+                                    sendMessage();
                                 }
                             });
 

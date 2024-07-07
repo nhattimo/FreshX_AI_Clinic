@@ -3228,7 +3228,7 @@ strong {
 
 .chat-block {
   width: 100%;
-  display: none;
+  display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 36px;
@@ -3258,8 +3258,8 @@ strong {
 }
 
 .chat-container {
-  overflow: auto;
   display: none;
+  overflow: auto;
   align-items: center;
   flex-direction: column;
 }

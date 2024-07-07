@@ -10,7 +10,6 @@ from langchain_community.utilities import SQLDatabase
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai import ChatOpenAI
 import requests
-from datetime import datetime
 # endregion
 
 # region : Cấu hình
@@ -38,17 +37,28 @@ llm = ChatOpenAI(model="gpt-3.5-turbo")
 
 # endregion
 
+
+# endregion
+
 # region : Tạo hàm để phân tích và xử lý yêu cầu từ người dùng 
 
+# Sử dụng mô hình ngôn ngữ để phân tích câu hỏi và trích xuất thông tin
 def get_sql_chain(db):
+    # Mẫu (template) này định nghĩa cấu trúc của chuỗi xử lý.
+    # <SCHEMA>{schema}</SCHEMA>: Chèn thông tin cấu trúc cơ sở dữ liệu vào đây.
+    # Lịch sử hội thoại (chat_history): Giữ ngữ cảnh của các cuộc trò chuyện trước đó.
+    # Ví dụ: Cung cấp một vài ví dụ về cách chuyển đổi câu hỏi của người dùng thành truy vấn SQL.
     template = """
     <SCHEMA>{schema}</SCHEMA>
 
     Lịch sử hội thoại: {chat_history}
 
-    truy vấn SQL và tư vấn về sức khỏe. đưa ra gợi ý về tình trạng bệnh, giải đấp những câu chào hỏi thường ngày
+    Truy vấn SQL và dựa vào dữ liệu đấy và tham khảo tư vấn về sức khỏe. đưa ra gợi ý về tình trạng bệnh, giải đấp những câu chào hỏi thường ngày, bạn cũng có thể gợi ý thêm và tự sử lý 1 số vấn đề ngoài database
 
     Ví dụ:
+    Câu chào: Chào bạn
+    Câu trả lời: Xin chào! Tôi là trợ lý ảo của Phòng khám FreshX. Tên tôi là FreshX. Tôi có thể giúp gì cho bạn hôm nay?
+
     Câu hỏi: Tôi đau bụng?
     Truy vấn SQL: SELECT c.mo_ta AS diagnosis_description, l.noi_dung AS advice 
                   FROM chan_doan c
@@ -77,10 +87,16 @@ def get_sql_chain(db):
     Câu hỏi: {question}
     Truy vấn SQL:
     """
+    # Tạo một đối tượng từ mẫu đã định nghĩa ở trên. Đối tượng này sẽ được sử dụng để tạo ra lời nhắc cho mô hình ngôn ngữ GPT.
     prompt = ChatPromptTemplate.from_template(template)
 
+    # Hàm này lấy thông tin về cấu trúc các bảng trong cơ sở dữ liệu.
     def get_schema(_):
         return db.get_table_info()
+    # RunnablePassthrough.assign(schema=get_schema): Gán thông tin cấu trúc cơ sở dữ liệu vào schema.
+    # | prompt: Sử dụng mẫu lời nhắc (prompt) đã tạo.
+    # | llm: Sử dụng mô hình ngôn ngữ để xử lý lời nhắc.
+    # | StrOutputParser(): Chuyển đổi đầu ra của mô hình thành chuỗi (string).
     return (
         RunnablePassthrough.assign(schema=get_schema)
         | prompt
@@ -88,11 +104,19 @@ def get_sql_chain(db):
         | StrOutputParser()
     )
 
+# get_response được thiết kế để sử dụng chuỗi xử lý SQL được tạo từ get_sql_chain 
+# để xử lý các câu hỏi từ người dùng, truy vấn cơ sở dữ liệu, và sau đó trả về phản hồi tự nhiên.
 def get_response(user_query: str, db: SQLDatabase, chat_history: list):
-    sql_chain = get_sql_chain(db)
+    sql_chain = get_sql_chain(db) # 1. get_sql_chain(db) Tạo ra chuỗi xử lý SQL từ đối tượng cơ sở dữ liệu
+                                    # chú thích
+                                    # chat_history: Lịch sử hội thoại giữa người dùng và AI.
+                                    # user_query: Câu hỏi của người dùng.
+                                    # db: Đối tượng cơ sở dữ liệu SQLDatabase.
+    # 2. Định nghĩa mẫu phản hồi
+    # trong đó chứa các thông tin cần thiết để AI hiểu và xử lý câu hỏi của người dùng, tạo truy vấn SQL và phản hồi lại một cách tự nhiên
     template = """
     Bạn là một trợ lý ảo tên là FreshX tại một phòng khám FreshX . 
-    Bạn đang tương tác với một người dùng, người đang hỏi bạn các câu hỏi liên qua đến bệnh tình và các bệnh tình đó sẽ có trong cơ sở dữ liệu của phòng khám để nhận tư vấn sức khỏe.
+    Bạn đang tương tác với một người dùng, người đang hỏi bạn các câu hỏi liên qua đến bệnh tình và các bệnh tình đó sẽ có trong cơ sở dữ liệu của phòng khám để nhận tư vấn sức khỏe, bạn cũng có thể dựa vào cơ sở dữ liệu để tư vấn thêm.
     Dựa trên sơ đồ bảng dưới đây, câu hỏi của người dùng, truy vấn SQL và phản hồi SQL, hãy viết một phản hồi tự nhiên. 
     Bạn có thể tự mình thêm vào những thứ tốt đẹp cho người dùng. phản hồi của bạn phải thật là tốt
     <SCHEMA>{schema}</SCHEMA>
@@ -104,8 +128,10 @@ def get_response(user_query: str, db: SQLDatabase, chat_history: list):
 
     Phản hồi của bạn:
     """
+    # Tạo một đối tượng từ mẫu đã định nghĩa. Đối tượng này sẽ được sử dụng để tạo ra lời nhắc cho mô hình ngôn ngữ GPT
     prompt = ChatPromptTemplate.from_template(template)
     
+    # 3. Tạo chuỗi xử lý đầy đủ: Kết hợp lấy thông tin cấu trúc cơ sở dữ liệu, chạy truy vấn SQL, sử dụng mẫu phản hồi và mô hình ngôn ngữ để xử lý.
     chain = (
         RunnablePassthrough.assign(query=sql_chain).assign(
             schema=lambda _: db.get_table_info(),
@@ -116,23 +142,13 @@ def get_response(user_query: str, db: SQLDatabase, chat_history: list):
         | StrOutputParser()
     )
     
-    response = chain.invoke({
+    # 4. Kích hoạt chuỗi xử lý: Với đầu vào là câu hỏi của người dùng và lịch sử hội thoại, trả về kết quả phản hồi từ AI.
+    # chain.invoke: Kích hoạt chuỗi xử lý với đầu vào là câu hỏi của người dùng và lịch sử hội thoại.
+    # return: Trả về kết quả phản hồi từ AI.
+    return chain.invoke({
         "question": user_query,
         "chat_history": chat_history,
     })
-
-    # Nếu phản hồi không chứa kết quả hợp lệ, trả về câu trả lời mặc định và tự động đặt lịch khám
-    if "Không tìm thấy" in response:
-        response = """
-        Xin lỗi, tôi không thể đưa ra chẩn đoán chính xác cho tình trạng của bạn qua trò chuyện này. Tôi rất tiếc khi dữ liệu của tôi chỉ có giới hạn nhưng bạn đừng lo, tôi có thể giúp bạn.
-        Để đảm bảo an toàn và sức khỏe của bạn, tôi khuyên bạn nên đến trực tiếp Phòng khám FreshX tại:
-        Địa chỉ: 116 Nguyễn Huy Tưởng, Hòa An, Liên Chiểu, Đà Nẵng
-        Số điện thoại: 0857075999
-        Bác sĩ tại phòng khám sẽ kiểm tra và đưa ra chẩn đoán cùng phương án điều trị phù hợp nhất cho bạn. Bạn có cần hỗ trợ thêm điều gì khác không?
-        """
-        auto_schedule_appointment(db, user_query)
-
-    return response
 
 def get_symptoms_advice(symptoms: str, db: SQLDatabase):
     query = f"""
@@ -165,24 +181,9 @@ def get_symptoms_advice(symptoms: str, db: SQLDatabase):
 def get_response_with_advice(user_query: str, db: SQLDatabase, chat_history: list):
     response = get_response(user_query, db, chat_history)
     advice = get_symptoms_advice(user_query, db)
-    full_response = f"{response}\n\nTư vấn: {advice}"
+    full_response = f"{response}\n\n. {advice}"
     return full_response
 
-def auto_schedule_appointment(db: SQLDatabase, ly_do: str):
-    ma_benh_nhan = "default_patient_id"  # Thay thế bằng mã bệnh nhân thực tế hoặc logic để lấy mã bệnh nhân
-    trang_thai = "pending"
-
-    # Lấy ngày và giờ hiện tại
-    now = datetime.now()
-    ngay_kham = now.date()
-    gio_kham = now.time()
-
-    query = """
-    INSERT INTO dat_lich_kham (ma_benh_nhan, ngay_kham, gio_kham, ly_do, trang_thai)
-    VALUES (%s, %s, %s, %s, %s)
-    """
-    params = (ma_benh_nhan, ngay_kham, gio_kham, ly_do, trang_thai)
-    db.run(query, params)
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -198,6 +199,8 @@ def chat():
         "response": response,
         "chat_history": chat_history
     })
+
+from datetime import datetime
 
 @app.route('/add_appointment', methods=['POST'])
 def add_appointment():
@@ -237,9 +240,11 @@ def add_diagnosis_note():
     return jsonify({"message": "Ghi chú bệnh đã được thêm thành công"}), 201
 
 
+# API Test xem file có chạy đc không
 @app.route('/test', methods=['GET'])
 def test():
     return "Flask server is running"
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
+

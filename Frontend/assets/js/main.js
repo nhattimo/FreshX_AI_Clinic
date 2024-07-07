@@ -469,16 +469,37 @@ document.getElementById("pushImage").onclick = function () {
 };
 
 //Push microphone
+
 document.getElementById("mic").onclick = function () {
-    let output = document.getElementById("message");
+    let output = document.getElementById("inputMessage");
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-    let recognization = new SpeechRecognition();
-    recognization.onstart = () => {};
-    recognization.onresult = (e) => {
-        var transcript = e.results[0][0].transcript;
-        output.innerText = transcript;
+    let recognition = new SpeechRecognition();
+
+    // Thiết lập ngôn ngữ nhận diện là tiếng Việt
+    recognition.lang = "vi-VN";
+
+    recognition.onstart = () => {
+        console.log(
+            "Voice recognition started. Try speaking into the microphone."
+        );
     };
-    recognization.start();
+
+    recognition.onspeechend = () => {
+        recognition.stop();
+        console.log("Voice recognition stopped.");
+    };
+
+    recognition.onresult = (e) => {
+        var transcript = e.results[0][0].transcript;
+        console.log("Transcript: ", transcript);
+        output.value = transcript;
+    };
+
+    recognition.onerror = (event) => {
+        console.error("Speech recognition error detected: " + event.error);
+    };
+
+    recognition.start();
 };
 
 // //Chat message

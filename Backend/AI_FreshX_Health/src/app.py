@@ -38,7 +38,7 @@ def get_sql_chain(db):
     
     prompt = ChatPromptTemplate.from_template(template)
     
-    llm = ChatOpenAI(model="gpt-3.5-turbo")  # Sử dụng mô hình chi phí thấp hơn
+    llm = ChatOpenAI(model="gpt-4-turbo")  # Sử dụng mô hình chi phí thấp hơn
     
     def get_schema(_):
         return db.get_table_info()
