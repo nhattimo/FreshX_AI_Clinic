@@ -86,7 +86,7 @@
             content="./assets/favicon/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
-        <title>GenAI | Edit Personal</title>
+        <title>GenAI | Chỉnh sửa thông tin</title>
     </head>
     <body>
         <header id="header" class="header"></header>
@@ -106,7 +106,7 @@
                                 <!-- User -->
                                 <div class="profile-user">
                                     <img
-                                        src="./assets/img/avt/avt1.jpg"
+                                        src="./assets/img/avt/avt2.png"
                                         alt=""
                                         class="profile-user__avatar"
                                     />
@@ -121,12 +121,12 @@
                                 <!-- Menu 1 -->
                                 <div class="profile-menu">
                                     <h3 class="profile-menu__title">
-                                        Manage Account
+                                        Quản lý tài khoản
                                     </h3>
                                     <ul class="profile-menu__list">
                                         <li>
                                             <a
-                                                href="./edit-personal-info.html"
+                                                href="./edit-personal.html"
                                                 class="profile-menu__link"
                                             >
                                                 <span
@@ -138,12 +138,12 @@
                                                         class="icon"
                                                     />
                                                 </span>
-                                                Personal info
+                                                Thông tin cá nhân
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#!"
+                                                href="./edit-address.html"
                                                 class="profile-menu__link"
                                             >
                                                 <span
@@ -155,12 +155,12 @@
                                                         class="icon"
                                                     />
                                                 </span>
-                                                Addresses
+                                                Địa chỉ
                                             </a>
                                         </li>
                                         <li>
                                             <a
-                                                href="#!"
+                                                href="./patient.html"
                                                 class="profile-menu__link"
                                             >
                                                 <span
@@ -172,7 +172,7 @@
                                                         class="icon"
                                                     />
                                                 </span>
-                                                Communications & privacy
+                                                Bệnh án
                                             </a>
                                         </li>
                                     </ul>
@@ -181,7 +181,7 @@
                                 <!-- Menu 3 -->
                                 <div class="profile-menu">
                                     <h3 class="profile-menu__title">
-                                        Subscriptions & plans
+                                        Đăng ký dịch vụ
                                     </h3>
                                     <ul class="profile-menu__list">
                                         <li>
@@ -198,7 +198,24 @@
                                                         class="icon"
                                                     />
                                                 </span>
-                                                Protection plans
+                                                Đăng ký gói
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="./paycard.html"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/wallet.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Thanh toán
                                             </a>
                                         </li>
                                     </ul>
@@ -207,7 +224,7 @@
                                 <!-- Menu 4 -->
                                 <div class="profile-menu">
                                     <h3 class="profile-menu__title">
-                                        Customer Service
+                                        Dịch vụ khách hàng
                                     </h3>
                                     <ul class="profile-menu__list">
                                         <li>
@@ -224,7 +241,7 @@
                                                         class="icon"
                                                     />
                                                 </span>
-                                                Help
+                                                Trợ giúp
                                             </a>
                                         </li>
                                         <li>
@@ -241,7 +258,7 @@
                                                         class="icon"
                                                     />
                                                 </span>
-                                                Terms of Use
+                                                Điều khoản sử dụng
                                             </a>
                                         </li>
                                     </ul>
@@ -261,7 +278,7 @@
                                                     class="profile-info__back-arrow icon"
                                                 />
                                             </a>
-                                            Personal info
+                                            Thông tin cá nhân
                                         </h2>
 
                                         <form
@@ -275,7 +292,7 @@
                                                         for="full-name"
                                                         class="form__label form-card__label"
                                                     >
-                                                        Full name
+                                                        Họ và tên
                                                     </label>
                                                     <div
                                                         class="form__text-input"
@@ -284,7 +301,7 @@
                                                             type="text"
                                                             name="full-name"
                                                             id="full-name"
-                                                            placeholder="Full name"
+                                                            placeholder="Họ và tên"
                                                             class="form__input"
                                                             required
                                                             autofocus
@@ -296,8 +313,8 @@
                                                         />
                                                     </div>
                                                     <p class="form__error">
-                                                        Full name is not in
-                                                        correct format
+                                                        Tên đầy đủ không đúng
+                                                        định dạng
                                                     </p>
                                                 </div>
 
@@ -306,14 +323,14 @@
                                                         for="email"
                                                         class="form__label form-card__label"
                                                     >
-                                                        Email address
+                                                        Email
                                                     </label>
                                                     <div
                                                         class="form__text-input"
                                                     >
                                                         <input
                                                             type="email"
-                                                            name="last-name"
+                                                            name="email"
                                                             id="email"
                                                             placeholder="Email"
                                                             class="form__input"
@@ -326,8 +343,8 @@
                                                         />
                                                     </div>
                                                     <p class="form__error">
-                                                        Email is not in correct
-                                                        format
+                                                        Email không đúng định
+                                                        dạng
                                                     </p>
                                                 </div>
                                             </div>
@@ -339,7 +356,7 @@
                                                         for="phone-number"
                                                         class="form__label form-card__label"
                                                     >
-                                                        Phone number
+                                                        Số điện thoại
                                                     </label>
                                                     <div
                                                         class="form__text-input"
@@ -348,7 +365,7 @@
                                                             type="tel"
                                                             name="phone-number"
                                                             id="phone-number"
-                                                            placeholder="Phone number"
+                                                            placeholder="Số điện thoại"
                                                             class="form__input"
                                                             minlength="10"
                                                             required
@@ -360,8 +377,8 @@
                                                         />
                                                     </div>
                                                     <p class="form__error">
-                                                        CPhone number is not in
-                                                        correct format
+                                                        Số điện thoại không đúng
+                                                        định dạng
                                                     </p>
                                                 </div>
 
@@ -370,7 +387,7 @@
                                                         for="password"
                                                         class="form__label form-card__label"
                                                     >
-                                                        Password
+                                                        Mật khẩu
                                                     </label>
                                                     <div
                                                         class="form__text-input"
@@ -379,7 +396,7 @@
                                                             type="password"
                                                             name="password"
                                                             id="password"
-                                                            placeholder="Password"
+                                                            placeholder="Mật khẩu"
                                                             class="form__input"
                                                             minlength="6"
                                                             required
@@ -391,8 +408,7 @@
                                                         />
                                                     </div>
                                                     <p class="form__error">
-                                                        Password is not in
-                                                        correct format
+                                                        Mật khẩu chưa đủ 6 ký tự
                                                     </p>
                                                 </div>
                                             </div>
@@ -400,13 +416,11 @@
                                             <div class="form-profile__bottom">
                                                 <a
                                                     href="./profile.html"
-                                                    class="btn btn--text"
-                                                    >Cancel</a
+                                                    class="btn btn--cancel"
+                                                    >Hủy bỏ</a
                                                 >
-                                                <button
-                                                    class="btn btn--primary btn--rounded"
-                                                >
-                                                    Save Edit
+                                                <button class="btn">
+                                                    Lưu lại
                                                 </button>
                                             </div>
                                         </form>

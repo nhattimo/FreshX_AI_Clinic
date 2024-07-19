@@ -91,7 +91,7 @@
         border-radius: 10px;
 
         &--bottom {
-            width: 32%;
+            width: 37%;
             margin: 0 auto;
             background: #fff;
 
@@ -139,7 +139,7 @@
 }
 
 .feedback-bottom {
-    padding: 320px 0 120px;
+    padding: 220px 0 100px;
     margin-top: -150px;
     background: #e9f6ff;
 
@@ -154,7 +154,7 @@
     }
 
     &__desc {
-        width: 18%;
+        width: 25%;
 
         @include abstracts.screen(xl) {
             width: 27%;
@@ -184,7 +184,7 @@
     &__btn {
         display: block;
         margin: 20px auto;
-        width: 10.3%;
+        width: 11%;
 
         @include abstracts.screen(xl) {
             width: 15%;

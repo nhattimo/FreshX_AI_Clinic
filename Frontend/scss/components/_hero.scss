@@ -89,8 +89,9 @@
 
     &__action {
         display: inline-block;
-        width: 132px;
+        width: 150px;
         margin-top: 40px;
+        // padding: ;
 
         @include abstracts.screen(lg) {
             position: absolute;

@@ -12,6 +12,10 @@ $error-color: #ed4337;
         display: flex;
         gap: 30px;
 
+        &--short {
+            width: 49%;
+        }
+
         @include abstracts.screen(md) {
             gap: 20px;
         }

@@ -86,7 +86,7 @@
             content="./assets/favicon/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
-        <title>GenAI | Hồ sơ</title>
+        <title>GenAI | Thêm thẻ bảo hiểm</title>
     </head>
     <body>
         <header id="header" class="header"></header>
@@ -265,152 +265,219 @@
                                 </div>
                             </aside>
                         </div>
-                        <div
-                            class="profile-info col-9 col-xl-8 col-lg-7 col-md-12"
-                        >
-                            <div class="profile-info">
+                        <div class="profile-info col-9 col-xl-8 col-lg-12">
+                            <div class="cart-info">
                                 <div class="row gy-3">
                                     <!-- My Wallet -->
                                     <div class="col-12">
-                                        <h2 class="profile-info__heading">
-                                            Giấy tờ liên quan
+                                        <h2 class="cart-info__heading--lv2">
+                                            <a href="./profile.html">
+                                                <img
+                                                    src="./assets/icons/arrow-left.svg"
+                                                    alt=""
+                                                    class="cart-info__back-arrow icon"
+                                                />
+                                            </a>
+                                            Thêm thẻ bảo hiểm
                                         </h2>
-                                        <p
-                                            class="profile-info__desc profile__desc"
-                                        >
-                                            Bảo hiểm xã hội, bảo hiểm thân thể,
-                                            ...
-                                        </p>
 
-                                        <div
-                                            class="row row-cols-3 row-cols-xl-2 row-cols-lg-1 gy-md-2"
+                                        <form
+                                            action="./profile.html"
+                                            class="form form-card"
                                         >
-                                            <!-- profile card 1 -->
-                                            <div class="col">
-                                                <article
-                                                    class="profile-cart profile-cart--noPading"
-                                                >
-                                                    <img
-                                                        src="./assets/img/profile/bhyt.jpg"
-                                                        alt=""
-                                                        class="profile-cart__img-bh"
-                                                    />
-                                                </article>
-                                            </div>
-
-                                            <!-- Add new profile card -->
-                                            <div class="col">
-                                                <a
-                                                    href="./add-new-bh.html"
-                                                    class="new-card"
-                                                >
-                                                    <img
-                                                        src="./assets/icons/plus.svg"
-                                                        alt=""
-                                                        class="new-card__icon icon"
-                                                    />
-                                                    <p class="new-card__text">
-                                                        Thêm thẻ
+                                            <!-- Form row 1 -->
+                                            <div class="form__row">
+                                                <div class="form__group">
+                                                    <label
+                                                        for="first-name"
+                                                        class="form__label form-card__label"
+                                                    >
+                                                        Tên
+                                                    </label>
+                                                    <div
+                                                        class="form__text-input"
+                                                    >
+                                                        <input
+                                                            type="text"
+                                                            name="first-name"
+                                                            id="first-name"
+                                                            placeholder="Tên"
+                                                            class="form__input"
+                                                            required
+                                                            autofocus
+                                                        />
+                                                        <img
+                                                            src="./assets/icons/form-error.svg"
+                                                            alt=""
+                                                            class="form__input-icon-error"
+                                                        />
+                                                    </div>
+                                                    <p class="form__error">
+                                                        Tên không đúng định dạng
                                                     </p>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Account info -->
-                                    <div class="col-12">
-                                        <h2 class="profile-info__heading">
-                                            Thông tin tài khoản
-                                        </h2>
-                                        <p
-                                            class="profile-info__desc profile__desc"
-                                        >
-                                            Địa chỉ, thông tin liên lạc và mật
-                                            khẩu
-                                        </p>
-                                        <div
-                                            class="row row-cols-2 row-cols-lg-1 gy-md-2"
-                                        >
-                                            <!-- Account info 1 -->
-                                            <div class="col">
-                                                <article class="account-info">
-                                                    <div
-                                                        class="account-info__icon"
+                                                </div>
+
+                                                <div class="form__group">
+                                                    <label
+                                                        for="last-name"
+                                                        class="form__label form-card__label"
                                                     >
+                                                        Họ và tên đệm
+                                                    </label>
+                                                    <div
+                                                        class="form__text-input"
+                                                    >
+                                                        <input
+                                                            type="text"
+                                                            name="last-name"
+                                                            id="last-name"
+                                                            placeholder="Họ và tên đệm"
+                                                            class="form__input"
+                                                            required
+                                                        />
                                                         <img
-                                                            src="./assets/icons/mail.svg"
+                                                            src="./assets/icons/form-error.svg"
                                                             alt=""
-                                                            class="icon"
+                                                            class="form__input-icon-error"
                                                         />
                                                     </div>
-                                                    <div>
-                                                        <h3
-                                                            class="account-info__title"
-                                                        >
-                                                            Địa chỉ Email
-                                                        </h3>
-                                                        <p
-                                                            class="account-info__desc"
-                                                        >
-                                                            nhatnv@fpt.edu.vn
-                                                        </p>
-                                                    </div>
-                                                </article>
+                                                    <p class="form__error">
+                                                        Họ và tên đệm không đúng
+                                                        định dạng
+                                                    </p>
+                                                </div>
                                             </div>
 
-                                            <!-- Account info 2 -->
-                                            <div class="col">
-                                                <article class="account-info">
-                                                    <div
-                                                        class="account-info__icon"
+                                            <!-- Form row 2 -->
+                                            <div class="form__row">
+                                                <div class="form__group">
+                                                    <label
+                                                        for="card-number"
+                                                        class="form__label form-card__label"
                                                     >
+                                                        Mã số thẻ
+                                                    </label>
+                                                    <div
+                                                        class="form__text-input"
+                                                    >
+                                                        <input
+                                                            type="text"
+                                                            name="card-number"
+                                                            id="card-number"
+                                                            placeholder="Mã số thẻ"
+                                                            class="form__input"
+                                                            maxlength="15"
+                                                            required
+                                                        />
                                                         <img
-                                                            src="./assets/icons/phone.svg"
+                                                            src="./assets/icons/form-error.svg"
                                                             alt=""
-                                                            class="icon"
+                                                            class="form__input-icon-error"
                                                         />
                                                     </div>
-                                                    <div>
-                                                        <h3
-                                                            class="account-info__title"
-                                                        >
-                                                            Số điện thoại
-                                                        </h3>
-                                                        <p
-                                                            class="account-info__desc"
-                                                        >
-                                                            +84 823 240 040
-                                                        </p>
+                                                    <p class="form__error">
+                                                        Mã số thẻ không đúng
+                                                        định dạng
+                                                    </p>
+                                                </div>
+
+                                                <div class="form__group">
+                                                    <label
+                                                        for="address"
+                                                        class="form__label form-card__label"
+                                                    >
+                                                        Địa chỉ
+                                                    </label>
+                                                    <div
+                                                        class="form__text-input"
+                                                    >
+                                                        <input
+                                                            type="text"
+                                                            name="address"
+                                                            id="address"
+                                                            placeholder="Địa chỉ"
+                                                            class="form__input"
+                                                            required
+                                                        />
+                                                        <img
+                                                            src="./assets/icons/form-error.svg"
+                                                            alt=""
+                                                            class="form__input-icon-error"
+                                                        />
                                                     </div>
-                                                </article>
+                                                    <p class="form__error">
+                                                        Địa chỉ không đúng định
+                                                        dạng
+                                                    </p>
+                                                </div>
                                             </div>
 
-                                            <!-- Account info 3 -->
-                                            <div class="col">
-                                                <article class="account-info">
-                                                    <div
-                                                        class="account-info__icon"
+                                            <!-- Form row 3 -->
+                                            <div class="form__row">
+                                                <div class="form__group">
+                                                    <label
+                                                        for="registerPlace"
+                                                        class="form__label form-card__label"
+                                                        >Nơi đăng ký</label
                                                     >
+                                                    <div
+                                                        class="form__text-input"
+                                                    >
+                                                        <input
+                                                            type="text"
+                                                            name="registerPlace"
+                                                            id="registerPlace"
+                                                            placeholder="Nơi đăng ký"
+                                                            class="form__input"
+                                                            required
+                                                        />
                                                         <img
-                                                            src="./assets/icons/location.svg"
+                                                            src="./assets/icons/form-error.svg"
                                                             alt=""
-                                                            class="icon"
+                                                            class="form__input-icon-error"
                                                         />
                                                     </div>
-                                                    <div>
-                                                        <h3
-                                                            class="account-info__title"
-                                                        >
-                                                            Địa chỉ
-                                                        </h3>
-                                                        <p
-                                                            class="account-info__desc"
-                                                        >
-                                                            271 Nguyễn Thị Thập
-                                                        </p>
-                                                    </div>
-                                                </article>
+                                                    <p class="form__error">
+                                                        Nơi đăng ký không đúng
+                                                        định dạng
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
+
+                                            <div class="form__group">
+                                                <label
+                                                    for="set-default-card"
+                                                    class="form__label form-card__label"
+                                                >
+                                                    Tùy chọn thẻ
+                                                </label>
+                                                <label class="form__checkbox">
+                                                    <input
+                                                        type="checkbox"
+                                                        name="set-default-card"
+                                                        id="set-default-card"
+                                                        class="form__checkbox-input d-none"
+                                                        checked
+                                                    />
+                                                    <span
+                                                        class="form__checkbox-label"
+                                                        >Đặt làm thẻ mặc
+                                                        định</span
+                                                    >
+                                                </label>
+                                            </div>
+
+                                            <div class="form-profile__bottom">
+                                                <a
+                                                    href="./profile.html"
+                                                    class="btn btn--cancel"
+                                                    >Hủy bỏ</a
+                                                >
+                                                <button class="btn">
+                                                    Lưu lại
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
