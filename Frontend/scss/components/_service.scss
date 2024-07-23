@@ -22,7 +22,7 @@
     justify-content: space-between;
 
     &__title {
-        width: 30%;
+        width: 35%;
 
         @include abstracts.screen(xl) {
             width: 35%;
@@ -82,7 +82,7 @@
     }
 
     &__desc {
-        width: 80%;
+        width: 100%;
         margin-top: 10px;
         color: #000;
         font-size: 1.4rem;

@@ -89,8 +89,9 @@
 
     &__action {
         display: inline-block;
-        width: 132px;
+        width: 150px;
         margin-top: 40px;
+        // padding: ;
 
         @include abstracts.screen(lg) {
             position: absolute;
@@ -110,6 +111,7 @@
 
 .hero-info {
     width: 50%;
+    overflow: hidden;
     height: 612px;
     position: relative;
     background-image: url(../../assets/img/hero/bg.jpg);

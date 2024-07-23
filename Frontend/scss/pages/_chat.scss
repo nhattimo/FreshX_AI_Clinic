@@ -6,7 +6,7 @@
 }
 
 .chat {
-    height: 80vh;
+    overflow: hidden;
     &__container {
         height: 85.3vh;
         @extend %flexItemCenter;
@@ -119,7 +119,6 @@
     margin: 15px auto;
     border-radius: 20px;
     background: #ccc;
-    overflow: auto;
 
     &__wrap {
         position: absolute;
