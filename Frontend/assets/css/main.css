@@ -3000,6 +3000,17 @@ strong {
   }
 }
 
+.form {
+  margin-top: 40px;
+}
+.form__wrap {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.form__wrap + .form__wrap {
+  margin-top: 24px;
+}
 .form:has(:invalid) .form__submit-btn {
   opacity: 0.5;
   pointer-events: none;
@@ -3179,6 +3190,9 @@ strong {
 .form__checkbox:has(:checked)::after {
   display: block;
 }
+.form__btn {
+  margin-left: auto;
+}
 
 .form-profile__bottom {
   margin-top: 22px;
@@ -3186,6 +3200,37 @@ strong {
   align-items: center;
   justify-content: flex-end;
   gap: 18px;
+}
+
+.form-group__label {
+  color: var(--primary-text-color);
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+}
+.form-group__input, .form-group__text {
+  width: 570px;
+  height: 60px;
+  margin-top: 12px;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #d6d8d9;
+  border-radius: 6px;
+  color: var(--primary-text-color);
+  font-size: 2rem;
+  letter-spacing: -0.8px;
+}
+.form-group__input::placeholder, .form-group__text::placeholder {
+  color: #828282;
+  font-size: 2rem;
+  letter-spacing: -0.8px;
+}
+.form-group__input--small, .form-group__text--small {
+  width: 270px;
+}
+.form-group__text {
+  height: 160px;
+  resize: none;
 }
 
 .modal {
@@ -3795,6 +3840,9 @@ strong {
   }
 }
 
+.profile-info {
+  padding-bottom: 20px;
+}
 .profile-info__heading {
   font-size: 2.4rem;
   font-weight: 700;
@@ -3803,9 +3851,13 @@ strong {
 .profile-info__heading--lv2 {
   display: flex;
   align-items: center;
+  gap: 10px;
   font-weight: 500;
   font-size: 2.2rem;
   line-height: 1.45;
+}
+.profile-info__icon {
+  display: block;
 }
 .profile-info__desc {
   margin-top: 6px;
@@ -3914,6 +3966,108 @@ strong {
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.42;
+}
+
+.pay-infoes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 430px;
+}
+
+.pay-info__title {
+  font-size: 1.6rem;
+}
+.pay-info__desc {
+  margin-top: 8px;
+  font-size: 1.4rem;
+}
+
+.pay-info + .pay-info {
+  margin-top: 26px;
+}
+
+.pay-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.pay-item {
+  width: 100%;
+  padding: 10px;
+  border-right: 3px solid #ccc;
+}
+.pay-item:last-child {
+  border-right: none;
+}
+.pay-item__icon {
+  width: 32px;
+}
+.pay-item__icon--small {
+  width: 19px;
+}
+.pay-item__title {
+  margin-top: 16px;
+  font-size: 3.2rem;
+}
+.pay-item__desc {
+  height: 100px;
+  margin-top: 5px;
+  display: -webkit-box;
+  line-height: 1.3;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pay-item__btn {
+  height: 57px;
+}
+.pay-item__price {
+  margin-top: 28px;
+  color: #ffb700;
+  font-size: 3rem;
+  font-weight: 600;
+}
+.pay-item__wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.pay-item__text {
+  font-weight: 500;
+}
+
+.pay-check {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 3px solid #ccc;
+}
+.pay-check__item {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  border-right: 3px solid #ccc;
+}
+.pay-check__item:last-child {
+  border-right: none;
+}
+.pay-check__icon {
+  width: 32px;
+}
+.pay-check__icon--delete {
+  width: 23px;
+}
+
+.pay-check + .pay-check {
+  border-top: none;
+}
+
+.patient__title {
+  width: 100%;
+  text-align: center;
+  font-size: 3.2rem;
 }
 
 .about-data__inner {
@@ -4071,6 +4225,94 @@ strong {
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -1.12px;
+}
+
+.contact-form {
+  display: flex;
+  align-items: center;
+}
+
+.contact {
+  padding: 63px 0 0;
+}
+.contact__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 120px;
+}
+
+.contact-content {
+  width: 35%;
+}
+.contact-content__heading {
+  margin-bottom: 42px;
+  color: #0fb5d9;
+  font-size: 5.8rem;
+  font-weight: 500;
+  line-height: 1.17;
+  letter-spacing: -1.16px;
+  text-transform: capitalize;
+}
+.contact-content__container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.contact-content__container + .contact-content__container {
+  margin-top: 26px;
+}
+.contact-content__title {
+  color: #000;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+}
+.contact-content__desc {
+  margin-top: 16px;
+  color: #828282;
+  font-size: 1.8rem;
+  line-height: 1.67;
+  letter-spacing: -0.36px;
+}
+
+.contact-info {
+  position: relative;
+  border: 1px solid #373739;
+}
+.contact-info__icon {
+  position: absolute;
+}
+.contact-info__icon--wow {
+  top: -32px;
+  left: -32px;
+}
+.contact-info__icon--star {
+  bottom: -17px;
+  right: -17px;
+}
+
+.contact-form {
+  gap: 100px;
+  padding: 0 185px 100px;
+  background: #fff;
+}
+.contact-form__title {
+  width: 369px;
+  margin-bottom: 18px;
+  color: #0fb5d9;
+  font-size: 3.6rem;
+  font-weight: 500;
+  line-height: 1.33;
+  letter-spacing: -0.72px;
+}
+.contact-form__desc {
+  color: #828282;
+}
+.contact-form__img {
+  width: 575px;
+  height: 858px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -3,6 +3,18 @@
 $error-color: #ed4337;
 
 .form {
+    margin-top: 40px;
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__wrap + &__wrap {
+        margin-top: 24px;
+    }
+
     &:has(:invalid) &__submit-btn {
         opacity: 0.5;
         pointer-events: none;
@@ -212,6 +224,10 @@ $error-color: #ed4337;
             display: block;
         }
     }
+
+    &__btn {
+        margin-left: auto;
+    }
 }
 
 .form-profile__bottom {
@@ -220,4 +236,43 @@ $error-color: #ed4337;
     align-items: center;
     justify-content: flex-end;
     gap: 18px;
+}
+
+.form-group {
+    &__label {
+        color: var(--primary-text-color);
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: -0.8px;
+    }
+
+    &__input,
+    &__text {
+        width: 570px;
+        height: 60px;
+        margin-top: 12px;
+        padding: 20px;
+        border-radius: 6px;
+        border: 1px solid #d6d8d9;
+        border-radius: 6px;
+
+        color: var(--primary-text-color);
+        font-size: 2rem;
+        letter-spacing: -0.8px;
+
+        &::placeholder {
+            color: #828282;
+            font-size: 2rem;
+            letter-spacing: -0.8px;
+        }
+
+        &--small {
+            width: 270px;
+        }
+    }
+
+    &__text {
+        height: 160px;
+        resize: none;
+    }
 }

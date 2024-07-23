@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- JS Load -->
+        <script src="./assets/js/load.js"></script>
+        <!-- Styles -->
+        <link rel="stylesheet" href="./assets/css/main.css" />
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./assets/fonts/stylesheet.css" />
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+        <title>GenAI | Chỉnh sửa địa chỉ</title>
+    </head>
+    <body>
+        <header id="header" class="header"></header>
+        <script>
+            load("#header", "./templates/header-login.html");
+        </script>
+        <!-- Main -->
+        <main class="profile">
+            <div class="container">
+                <!-- Profile content -->
+                <div class="profile-container">
+                    <div class="row gy-md-3">
+                        <div
+                            class="profile-info col-3 col-xl-4 col-lg-5 col-md-12"
+                        >
+                            <aside class="profile__sidebar">
+                                <!-- User -->
+                                <div class="profile-user">
+                                    <img
+                                        src="./assets/img/avt/avt2.png"
+                                        alt=""
+                                        class="profile-user__avatar"
+                                    />
+                                    <h1 class="profile-user__name">
+                                        Nguyễn Văn Nhật
+                                    </h1>
+                                    <p class="profile-user__desc">
+                                        Ngày tham gia: 17/05/2024
+                                    </p>
+                                </div>
+
+                                <!-- Menu 1 -->
+                                <div class="profile-menu">
+                                    <h3 class="profile-menu__title">
+                                        Quản lý tài khoản
+                                    </h3>
+                                    <ul class="profile-menu__list">
+                                        <li>
+                                            <a
+                                                href="./edit-personal.html"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/user.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Thông tin cá nhân
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="./edit-address.html"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/location.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Địa chỉ
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="./patient.html"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/mail.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Bệnh án
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Menu 3 -->
+                                <div class="profile-menu">
+                                    <h3 class="profile-menu__title">
+                                        Đăng ký dịch vụ
+                                    </h3>
+                                    <ul class="profile-menu__list">
+                                        <li>
+                                            <a
+                                                href="./pay.html"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/protection.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Đăng ký gói
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="./paycard.html"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/wallet.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Thanh toán
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Menu 4 -->
+                                <div class="profile-menu">
+                                    <h3 class="profile-menu__title">
+                                        Dịch vụ khách hàng
+                                    </h3>
+                                    <ul class="profile-menu__list">
+                                        <li>
+                                            <a
+                                                href="#!"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/help.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Trợ giúp
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#!"
+                                                class="profile-menu__link"
+                                            >
+                                                <span
+                                                    class="profile-menu__icon"
+                                                >
+                                                    <img
+                                                        src="./assets/icons/term.svg"
+                                                        alt=""
+                                                        class="icon"
+                                                    />
+                                                </span>
+                                                Điều khoản sử dụng
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="profile-info col-9 col-xl-8 col-lg-12">
+                            <div class="profile-info">
+                                <h2 class="profile-info__heading--lv2">
+                                    <a href="./profile.html">
+                                        <img
+                                            src="./assets/icons/arrow-left.svg"
+                                            alt=""
+                                            class="profile-info__icon"
+                                        />
+                                    </a>
+                                    Đăng ký gói
+                                </h2>
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="pay-infoes">
+                                            <div class="pay-info">
+                                                <h3
+                                                    class="pay-info__title section-heading"
+                                                >
+                                                    Free Icons
+                                                </h3>
+                                                <p
+                                                    class="pay-info__desc section-desc"
+                                                >
+                                                    Over 2,000 icons free to
+                                                    use, plus a huge set of
+                                                    brand icons.
+                                                </p>
+                                            </div>
+
+                                            <div class="pay-info">
+                                                <h3
+                                                    class="pay-info__title section-heading"
+                                                >
+                                                    Brand Icons
+                                                </h3>
+                                                <p
+                                                    class="pay-info__desc section-desc"
+                                                >
+                                                    The easiest way to get
+                                                    social media and online
+                                                    services logos added to your
+                                                    site.
+                                                </p>
+                                            </div>
+
+                                            <div class="pay-info">
+                                                <h3
+                                                    class="pay-info__title section-heading"
+                                                >
+                                                    Styling and Animations
+                                                </h3>
+                                                <p
+                                                    class="pay-info__desc section-desc"
+                                                >
+                                                    Put some pep into your
+                                                    icon's step with easy
+                                                    styling and animations!
+                                                </p>
+                                            </div>
+
+                                            <div class="pay-info">
+                                                <h3
+                                                    class="pay-info__title section-heading"
+                                                >
+                                                    Kits
+                                                </h3>
+                                                <p
+                                                    class="pay-info__desc section-desc"
+                                                >
+                                                    The easiest way to use Font
+                                                    Awesome, all without pushing
+                                                    code.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="row">
+                                            <div class="pay-items">
+                                                <!-- Pay item 1 -->
+                                                <article class="pay-item">
+                                                    <img
+                                                        src="./assets/icons/earth.svg"
+                                                        alt=""
+                                                        class="pay-item__icon"
+                                                    />
+                                                    <h2
+                                                        class="pay-item__title section-heading"
+                                                    >
+                                                        Miễn phí
+                                                    </h2>
+                                                    <p
+                                                        class="pay-item__desc section-desc"
+                                                    >
+                                                        Phù hợp nhất cho các cá
+                                                        nhân và nhóm nhỏ có nhu
+                                                        cầu biểu tượng tối thiểu
+                                                        và thích các mẫu miễn
+                                                        phí.
+                                                    </p>
+                                                    <button
+                                                        href="./sign-in.html"
+                                                        class="button-82-pushable hero-content__action"
+                                                        role="button"
+                                                    >
+                                                        <span
+                                                            class="button-82-shadow"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-edge"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-front text"
+                                                        >
+                                                            Bắt đầu
+                                                        </span>
+                                                        >
+                                                    </button>
+                                                    <p class="pay-item__price">
+                                                        0vnđ
+                                                    </p>
+                                                    <div class="pay-item__wrap">
+                                                        <img
+                                                            class="pay-item__icon pay-item__icon--small"
+                                                            src="./assets/icons/infinity.svg"
+                                                            alt=""
+                                                        />
+                                                        <p
+                                                            class="pay-item__text"
+                                                        >
+                                                            Vĩnh viễn
+                                                        </p>
+                                                    </div>
+                                                </article>
+                                                <!-- Pay item 2 -->
+                                                <article class="pay-item">
+                                                    <img
+                                                        src="./assets/icons/earth.svg"
+                                                        alt=""
+                                                        class="pay-item__icon"
+                                                    />
+                                                    <h2
+                                                        class="pay-item__title section-heading"
+                                                    >
+                                                        Pro Lite
+                                                    </h2>
+                                                    <p
+                                                        class="pay-item__desc section-desc"
+                                                    >
+                                                        Phù hợp nhất cho những
+                                                        cá nhân muốn có biểu
+                                                        tượng Pro nhưng chỉ cần
+                                                        truy cập trực tuyến.
+                                                    </p>
+                                                    <button
+                                                        href="./sign-in.html"
+                                                        class="button-82-pushable hero-content__action"
+                                                        role="button"
+                                                    >
+                                                        <span
+                                                            class="button-82-shadow"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-edge"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-front text"
+                                                        >
+                                                            Bắt đầu
+                                                        </span>
+                                                        >
+                                                    </button>
+                                                    <p class="pay-item__price">
+                                                        499vnđ
+                                                    </p>
+                                                    <div class="pay-item__wrap">
+                                                        <img
+                                                            class="pay-item__icon pay-item__icon--small"
+                                                            src="./assets/icons/calendar.svg"
+                                                            alt=""
+                                                        />
+                                                        <p
+                                                            class="pay-item__text"
+                                                        >
+                                                            1 Năm
+                                                        </p>
+                                                    </div>
+                                                </article>
+                                                <!-- Pay item 3 -->
+                                                <article class="pay-item">
+                                                    <img
+                                                        src="./assets/icons/earth.svg"
+                                                        alt=""
+                                                        class="pay-item__icon"
+                                                    />
+                                                    <h2
+                                                        class="pay-item__title section-heading"
+                                                    >
+                                                        Pro
+                                                    </h2>
+                                                    <p
+                                                        class="pay-item__desc section-desc"
+                                                    >
+                                                        Tốt nhất cho các nhóm
+                                                        thiết kế + nhà phát
+                                                        triển hợp tác ủng hộ
+                                                        cộng đồng nguồn mở.
+                                                    </p>
+                                                    <button
+                                                        href="./sign-in.html"
+                                                        class="button-82-pushable hero-content__action"
+                                                        role="button"
+                                                    >
+                                                        <span
+                                                            class="button-82-shadow"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-edge"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-front text"
+                                                        >
+                                                            Bắt đầu
+                                                        </span>
+                                                        >
+                                                    </button>
+                                                    <p class="pay-item__price">
+                                                        999vnđ
+                                                    </p>
+                                                    <div class="pay-item__wrap">
+                                                        <img
+                                                            class="pay-item__icon pay-item__icon--small"
+                                                            src="./assets/icons/calendar.svg"
+                                                            alt=""
+                                                        />
+                                                        <p
+                                                            class="pay-item__text"
+                                                        >
+                                                            1 Năm
+                                                        </p>
+                                                    </div>
+                                                </article>
+                                                <!-- Pay item 4 -->
+                                                <article class="pay-item">
+                                                    <img
+                                                        src="./assets/icons/earth.svg"
+                                                        alt=""
+                                                        class="pay-item__icon"
+                                                    />
+                                                    <h2
+                                                        class="pay-item__title section-heading"
+                                                    >
+                                                        Pro Max
+                                                    </h2>
+                                                    <p
+                                                        class="pay-item__desc section-desc"
+                                                    >
+                                                        Rất phù hợp cho nhóm
+                                                        thiết kế + nhà phát
+                                                        triển trong các tổ chức
+                                                        lớn hơn với nhiều dự án
+                                                        hoặc ứng dụng.
+                                                    </p>
+                                                    <button
+                                                        href="./sign-in.html"
+                                                        class="button-82-pushable hero-content__action"
+                                                        role="button"
+                                                    >
+                                                        <span
+                                                            class="button-82-shadow"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-edge"
+                                                        ></span>
+                                                        <span
+                                                            class="button-82-front text"
+                                                        >
+                                                            Bắt đầu
+                                                        </span>
+                                                        >
+                                                    </button>
+                                                    <p class="pay-item__price">
+                                                        1.449vnđ
+                                                    </p>
+                                                    <div class="pay-item__wrap">
+                                                        <img
+                                                            class="pay-item__icon pay-item__icon--small"
+                                                            src="./assets/icons/calendar.svg"
+                                                            alt=""
+                                                        />
+                                                        <p
+                                                            class="pay-item__text"
+                                                        >
+                                                            1 Năm
+                                                        </p>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+
+                                        <div class="pay-check">
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div class="pay-check">
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/delete.svg"
+                                                    alt=""
+                                                    class="pay-check__icon pay-check__icon--delete"
+                                                />
+                                            </div>
+
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div class="pay-check">
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/delete.svg"
+                                                    alt=""
+                                                    class="pay-check__icon pay-check__icon--delete"
+                                                />
+                                            </div>
+
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/delete.svg"
+                                                    alt=""
+                                                    class="pay-check__icon pay-check__icon--delete"
+                                                />
+                                            </div>
+
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div class="pay-check">
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/delete.svg"
+                                                    alt=""
+                                                    class="pay-check__icon pay-check__icon--delete"
+                                                />
+                                            </div>
+
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/delete.svg"
+                                                    alt=""
+                                                    class="pay-check__icon pay-check__icon--delete"
+                                                />
+                                            </div>
+
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/delete.svg"
+                                                    alt=""
+                                                    class="pay-check__icon pay-check__icon--delete"
+                                                />
+                                            </div>
+                                            <div class="pay-check__item">
+                                                <img
+                                                    src="./assets/icons/check.svg"
+                                                    alt=""
+                                                    class="pay-check__icon"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Footer -->
+        <footer id="footer" class="footer"></footer>
+        <script>
+            load("#footer", "./templates/footer-login.html");
+        </script>
+
+        <!-- js -->
+        <script src="./assets/js/main.js"></script>
+    </body>
+</html>
