@@ -5,11 +5,11 @@ namespace API.Server.Interfaces
 {
     public interface RolesInterface
     {
-        Task<List<Roles>> GetAllAsync();
-        Task<Roles?> GetByIdAsync(int id);
-        Task<Roles> CreateAsync(Roles roleModel);
-        Task<Roles?> UpdateAsync(int id, UpdateRolesRequersDto roleDto);
-        Task<Roles?> DeleteAsync(int id);
+        Task<List<Role>> GetAllAsync();
+        Task<Role?> GetByIdAsync(int id);
+        Task<Role> CreateAsync(Role roleModel);
+        Task<Role?> UpdateAsync(int id, UpdateRolesRequersDto roleDto);
+        Task<Role?> DeleteAsync(int id);
         Task<bool> RoleExists(int id);
     }
 }

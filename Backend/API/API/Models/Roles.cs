@@ -2,16 +2,11 @@
 
 namespace API.Server.Models
 {
-    public class Roles
+    public class Role
     {
-        public int Id { get; set; }
-
-        [Required, MaxLength(50)]
-        public string RoleName { get; set; }
-
-        [MaxLength(200)]
-        public string Description { get; set; }
-
-        public Employees Employee { get; set; }  // One-to-one relationship
+        public int Id { get; set; } // Mã định danh của vai trò
+        public string RoleName { get; set; } // Tên của vai trò
+        public ICollection<AccountEmp> AccountEmp { get; set; } // Danh sách tài khoản nhân viên
     }
+
 }
