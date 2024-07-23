@@ -1,12 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Identity;
-using API.Server.Models;
+using API.Server.Interfaces;
 using API.Server.DTOs.Account;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
-using System.Data;
+using System.Threading.Tasks;
 
 namespace API.Server.Controllers
 {
@@ -14,88 +9,59 @@ namespace API.Server.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
-        private readonly IConfiguration _configuration;
+        private readonly IAccountService _accountService;
 
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IConfiguration configuration)
+        public AccountController(IAccountService accountService)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _configuration = configuration;
+            _accountService = accountService;
         }
 
+        // API endpoint cho đăng ký người dùng mới
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
         {
+            // Kiểm tra dữ liệu đầu vào
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var user = new AppUser { UserName = registerDto.Email, Email = registerDto.Email, Name = registerDto.Name };
+            // Gọi phương thức RegisterAsync từ IAccountService
+            var (succeeded, errorMessage) = await _accountService.RegisterAsync(registerDto);
 
-            var result = await _userManager.CreateAsync(user, registerDto.Password);
+            // Kiểm tra kết quả đăng ký
+            if (!succeeded)
+                return BadRequest(errorMessage);
 
-            if (!result.Succeeded)
-                return BadRequest(result.Errors);
-
-            // Optionally sign in the user after they are registered
-            // await _signInManager.SignInAsync(user, isPersistent: false);
-
+            // Trả về kết quả thành công
             return Ok("User registered successfully.");
         }
 
-
+        // API endpoint cho đăng nhập người dùng
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
+            // Kiểm tra dữ liệu đầu vào
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _signInManager.PasswordSignInAsync(loginDto.UserName, loginDto.Password, loginDto.RememBerMe, lockoutOnFailure: false);
+            // Gọi phương thức LoginAsync từ IAccountService
+            var (succeeded, token, errorMessage) = await _accountService.LoginAsync(loginDto);
 
-            if (result.Succeeded)
-            {
-                var user = await _signInManager.UserManager.FindByNameAsync(loginDto.UserName);
-                var token = GenerateJwtToken(user);
-
+            // Kiểm tra kết quả đăng nhập
+            if (succeeded)
                 return Ok(new { Token = token });
-            }
-            else if (result.IsLockedOut)
-            {
-                return BadRequest("User account locked out.");
-            }
-            else
-            {
-                return BadRequest("Invalid login attempt.");
-            }
+
+            // Trả về lỗi nếu đăng nhập thất bại
+            return BadRequest(errorMessage);
         }
 
-        private string GenerateJwtToken(AppUser user)
-        {
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(JwtRegisteredClaimNames.Iat,((DateTimeOffset)DateTime.UtcNow).ToUnixTimeSeconds().ToString()),
-                    // Thêm các thông tin khác từ user vào đây nếu cần thiết
-                }),
-                Expires = DateTime.UtcNow.AddHours(1), // Thời gian hết hạn của token
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
-
-            return tokenString;
-        }
-
+        // API endpoint cho đăng xuất người dùng
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
+            // Gọi phương thức LogoutAsync từ IAccountService
+            await _accountService.LogoutAsync();
+
+            // Trả về kết quả thành công
             return Ok("Logout successful.");
         }
     }

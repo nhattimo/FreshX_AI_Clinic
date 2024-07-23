@@ -5,21 +5,21 @@ namespace API.Server.Mappers
 {
     public static class RolesMapper
     {
-        public static RoleDto ToRoleDto(this Roles roleModel)
+        public static RoleDto ToRoleDto(this Role roleModel)
         {
             return new RoleDto
             {
                 Id = roleModel.Id,
                 RoleName = roleModel.RoleName,
-                Description = roleModel.Description
+                //Description = roleModel.Description
             };
         }
-        public static Roles ToRoleFromCreateDto(this CreateRolesRequersDto roleDto)
+        public static Role ToRoleFromCreateDto(this CreateRolesRequersDto roleDto)
         {
-            return new Roles
+            return new Role
             {
                 RoleName = roleDto.RoleName,
-                Description = roleDto.Description
+                //Description = roleDto.Description
             };
         }
     }

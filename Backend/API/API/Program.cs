@@ -1,41 +1,34 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using System.Text;
-using API.Server.Data;
-using API.Server.Models;
-using API.Server.Interfaces;
-using API.Server.Services;
-using Microsoft.Extensions.Options;
-using API.Models;
+using API;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Set up configuration
-builder.Configuration.AddJsonFile("appsettings.json");
+builder.Configuration.AddJsonFile("appsettings.json"); // Đọc cấu hình từ appsettings.json
 var connectionString = builder.Configuration.GetConnectionString("DbContext");
 
 // Register database context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(connectionString);
+    options.UseSqlServer(connectionString); // Đăng ký ApplicationDbContext với chuỗi kết nối từ appsettings.json
 });
 
-// Configure identity
-builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
-{
-    options.Password.RequiredLength = 8;
-    options.Password.RequireDigit = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireLowercase = false;
-})
-.AddEntityFrameworkStores<ApplicationDbContext>()
-.AddDefaultTokenProviders();
+// Đọc cấu hình từ appsettings.json
+var jwtSettings = builder.Configuration.GetSection("Jwt");
 
-// Configure JWT authentication
-var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
+var secretKey = jwtSettings["Key"];
+var issuer = jwtSettings["Issuer"];
+var audience = jwtSettings["Audience"];
+var key = Encoding.ASCII.GetBytes(secretKey); // Mã hóa secret key thành mảng byte
+
+// Đăng ký JwtTokenService với DI container
+builder.Services.AddSingleton(new JwtTokenService(secretKey, issuer, audience));
+
+builder.Services.AddControllers();
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -45,43 +38,38 @@ builder.Services.AddAuthentication(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = false,
-        ValidateAudience = false,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = builder.Configuration["Jwt:Issuer"],
-        ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ClockSkew = TimeSpan.Zero
+        ValidateIssuer = false, // Không cần xác thực issuer
+        ValidateAudience = false, // Không cần xác thực audience
+        ValidateLifetime = true, // Xác thực thời gian sống của token
+        ValidateIssuerSigningKey = true, // Xác thực khóa ký token
+        ValidIssuer = issuer,
+        ValidAudience = audience,
+        IssuerSigningKey = new SymmetricSecurityKey(key), // Khóa ký token
+        ClockSkew = TimeSpan.Zero // Không cho phép chênh lệch thời gian
     };
 });
 
-// Register Coze API settings
-builder.Services.Configure<CozeSettings>(builder.Configuration.GetSection("CozeSettings"));
-
 // Register HttpClient
-builder.Services.AddHttpClient();
+builder.Services.AddHttpClient(); // Đăng ký HttpClient cho DI container
 
 // Register services and repositories
-builder.Services.AddScoped<RolesInterface, RolesServices>();
-builder.Services.AddScoped<ISupplierInterface, SupplierServices>();
-builder.Services.AddScoped<ICategoryInterface, CategoryServices>();
-builder.Services.AddScoped<IProductItemInterface, ProductItemServices>();
+// builder.Services.AddScoped<RolesInterface, RolesServices>(); // Đăng ký RolesServices cho DI container với interface RolesInterface
+
 
 // Add controllers and Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(); // Thêm Swagger để tạo tài liệu API
 
 // Configure CORS policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
         builder => builder
-            .WithOrigins("http://localhost:5173")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials());
+            .WithOrigins("http://localhost:5173") // Cho phép yêu cầu từ localhost:5173 (ứng dụng React)
+            .AllowAnyHeader() // Cho phép mọi header
+            .AllowAnyMethod() // Cho phép mọi phương thức (GET, POST, PUT, DELETE, v.v.)
+            .AllowCredentials()); // Cho phép gửi thông tin xác thực (cookies, headers)
 });
 
 var app = builder.Build();
@@ -89,28 +77,28 @@ var app = builder.Build();
 // Configure middleware pipeline
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseDeveloperExceptionPage();
+    app.UseSwagger(); // Sử dụng Swagger trong môi trường phát triển
+    app.UseSwaggerUI(); // Sử dụng giao diện Swagger UI
+    app.UseDeveloperExceptionPage(); // Sử dụng trang lỗi dành cho nhà phát triển
 }
 else
 {
-    app.UseHsts();
+    app.UseHsts(); // Sử dụng HSTS trong môi trường sản xuất
 }
-app.UseSwagger();
-app.UseSwaggerUI();
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
+app.UseSwagger(); // Sử dụng Swagger
+app.UseSwaggerUI(); // Sử dụng giao diện Swagger UI
+app.UseHttpsRedirection(); // Chuyển hướng các yêu cầu HTTP sang HTTPS
+app.UseStaticFiles(); // Phục vụ các tệp tĩnh
+app.UseRouting(); // Kích hoạt định tuyến
 
-app.UseCors("AllowReactApp");
+app.UseCors("AllowReactApp"); // Kích hoạt chính sách CORS
 
-app.UseAuthentication();
-app.UseAuthorization();
+app.UseAuthentication(); // Kích hoạt middleware xác thực
+app.UseAuthorization(); // Kích hoạt middleware phân quyền
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllers();
+    endpoints.MapControllers(); // Định tuyến đến các controller
 });
 
-app.Run();
+app.Run(); // Chạy ứng dụng
