@@ -13,11 +13,21 @@
         align-items: flex-end;
         justify-content: space-between;
         padding-bottom: 120px;
+
+        @include abstracts.screen(lg) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 30px;
+        }
     }
 }
 
 .contact-content {
     width: 35%;
+
+    @include abstracts.screen(lg) {
+        width: 100%;
+    }
 
     &__heading {
         margin-bottom: 42px;
@@ -56,8 +66,19 @@
 }
 
 .contact-info {
+    width: 570px;
+    height: 513px;
     position: relative;
     border: 1px solid #373739;
+
+    @include abstracts.screen(xl) {
+        width: 500px;
+        height: 443px;
+    }
+
+    @include abstracts.screen(lg) {
+        width: 100%;
+    }
 
     &__icon {
         position: absolute;
@@ -76,18 +97,21 @@
 
 .contact-form {
     @extend %flexItemCenter;
-    gap: 100px;
-    padding: 0 185px 100px;
+    justify-content: space-between;
     background: #fff;
 
     &__title {
-        width: 369px;
+        width: 60%;
         margin-bottom: 18px;
         color: #0fb5d9;
         font-size: 3.6rem;
         font-weight: 500;
         line-height: 1.33;
         letter-spacing: -0.72px;
+
+        @include abstracts.screen(xl) {
+            width: 92%;
+        }
     }
 
     &__desc {
@@ -96,7 +120,10 @@
 
     &__img {
         width: 575px;
-        height: 858px;
         object-fit: cover;
+
+        @include abstracts.screen(xl) {
+            width: 52%;
+        }
     }
 }

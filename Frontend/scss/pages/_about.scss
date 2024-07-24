@@ -9,6 +9,10 @@
     padding: 100px 0 90px;
     background: #fff;
 
+    @include abstracts.screen(lg) {
+        padding: 50px 0 30px;
+    }
+
     &__title {
         width: 70%;
         font-size: 7.6rem;
@@ -17,10 +21,17 @@
         letter-spacing: -3.04px;
         text-transform: capitalize;
 
+        @include abstracts.screen(lg) {
+            width: 100%;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 3.6rem;
+        }
+
         &--team {
             margin: 0 auto;
             text-align: center;
-            width: 592px;
         }
     }
 
@@ -31,17 +42,29 @@
         font-size: 2rem;
         line-height: 1.7;
         letter-spacing: -0.4px;
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 1.6rem;
+        }
     }
 
     &__img {
-        display: block;
         width: 100%;
         height: 515px;
+        display: block;
         object-fit: cover;
     }
 
     &__team {
         margin-top: 60px;
+
+        @include abstracts.screen(lg) {
+            margin-top: 30px;
+        }
     }
 }
 
@@ -49,6 +72,12 @@
     display: flex;
     gap: 100px;
     padding: 100px 0 0;
+
+    @include abstracts.screen(lg) {
+        flex-direction: column;
+        gap: 30px;
+        padding-top: 70px;
+    }
 
     &__title {
         width: 43%;
@@ -58,12 +87,24 @@
         line-height: 1.15;
         letter-spacing: -3.04px;
         text-transform: capitalize;
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 3.6rem;
+        }
     }
 
     &__wrap {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 56px 50px;
+
+        @include abstracts.screen(lg) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__sub {
@@ -80,6 +121,11 @@
         font-size: 1.8rem;
         line-height: 1.67;
         letter-spacing: -0.36px;
+
+        @include abstracts.screen(md) {
+            margin-top: 12px;
+            font-size: 1.6rem;
+        }
     }
 }
 
@@ -87,7 +133,7 @@
     position: relative;
     z-index: 1;
     &__wrap {
-        width: 270px;
+        width: 100%;
         height: 324px;
         position: relative;
         background: #e1e1e1;
@@ -139,6 +185,11 @@
         padding: 100px 0;
         @extend %flexItemCenter;
         justify-content: space-between;
+
+        @include abstracts.screen(lg) {
+            flex-direction: column;
+            gap: 30px;
+        }
     }
 
     &__heading {
@@ -149,6 +200,15 @@
         line-height: 1.17;
         letter-spacing: -1.16px;
         text-transform: capitalize;
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+            text-align: center;
+        }
+
+        @include abstracts.screen(md) {
+            font-size: 3.6rem;
+        }
     }
 }
 
@@ -156,6 +216,18 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 54px 93px;
+
+    @include abstracts.screen(xxl) {
+        gap: 54px 33px;
+    }
+
+    @include abstracts.screen(xl) {
+        grid-template-columns: 1fr;
+    }
+
+    @include abstracts.screen(lg) {
+        gap: 30px;
+    }
 
     &__number {
         color: #fff;

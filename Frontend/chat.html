@@ -97,7 +97,7 @@
         <main>
             <div class="chat">
                 <div class="row">
-                    <article class="col-3">
+                    <article class="col-3 d-md-none">
                         <div class="chat__container">
                             <article class="chat-info">
                                 <img
@@ -174,7 +174,7 @@
                             </article>
                         </div>
                     </article>
-                    <article class="col-9">
+                    <article class="col-9 col-md-12">
                         <div class="chat-box">
                             <div
                                 id="chat-box__message"
@@ -217,21 +217,29 @@
                                             id="pushImage"
                                             src="./assets/icons/image.svg"
                                             alt=""
-                                            class="chat-box__icon"
+                                            class="chat-box__icon d-md-none"
                                         />
                                         <img
                                             src="./assets/icons/cut.svg"
                                             alt=""
-                                            class="chat-box__icon"
+                                            class="chat-box__icon d-md-none"
                                         />
-                                    </div>
-                                    <div class="chat-box__icons">
                                         <img
                                             id="mic"
                                             src="./assets/icons/mic.svg"
                                             alt=""
-                                            class="chat-box__icon"
+                                            class="chat-box__icon d-md-none"
                                         />
+                                        <button
+                                            type="button"
+                                            class="d-none d-md-block"
+                                        >
+                                            <img
+                                                src="./assets/icons/list.svg"
+                                                alt=""
+                                                class="chat-box__icon"
+                                            />
+                                        </button>
                                         <button type="button" id="sendButton">
                                             <img
                                                 id="send"

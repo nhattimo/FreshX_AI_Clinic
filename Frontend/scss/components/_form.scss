@@ -9,6 +9,27 @@ $error-color: #ed4337;
         display: flex;
         align-items: center;
         gap: 30px;
+
+        @include abstracts.screen(lg) {
+            display: block;
+        }
+
+        &--double {
+            width: 76%;
+
+            @include abstracts.screen(xxl) {
+                width: 92%;
+            }
+
+            @include abstracts.screen(lg) {
+                width: 100%;
+            }
+
+            @include abstracts.screen(md) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
     }
 
     &__wrap + &__wrap {
@@ -52,6 +73,12 @@ $error-color: #ed4337;
         &--inline {
             display: flex;
             align-items: center;
+        }
+    }
+
+    &__group + &__group {
+        @include abstracts.screen(md) {
+            margin-top: 20px;
         }
     }
 
@@ -226,7 +253,19 @@ $error-color: #ed4337;
     }
 
     &__btn {
-        margin-left: auto;
+        margin-left: 440px;
+
+        @include abstracts.screen(xl) {
+            margin-left: 285px;
+        }
+
+        @include abstracts.screen(lg) {
+            float: right;
+        }
+
+        @include abstracts.screen(md) {
+            margin-left: 10px;
+        }
     }
 }
 
@@ -239,6 +278,12 @@ $error-color: #ed4337;
 }
 
 .form-group {
+    &--double + &--double {
+        @include abstracts.screen(lg) {
+            margin-top: 30px;
+        }
+    }
+
     &__label {
         color: var(--primary-text-color);
         font-size: 2rem;
@@ -248,6 +293,7 @@ $error-color: #ed4337;
 
     &__input,
     &__text {
+        display: block;
         width: 570px;
         height: 60px;
         margin-top: 12px;
@@ -260,6 +306,18 @@ $error-color: #ed4337;
         font-size: 2rem;
         letter-spacing: -0.8px;
 
+        @include abstracts.screen(xxl) {
+            width: 495px;
+        }
+
+        @include abstracts.screen(xl) {
+            width: 410px;
+        }
+
+        @include abstracts.screen(lg) {
+            width: 100%;
+        }
+
         &::placeholder {
             color: #828282;
             font-size: 2rem;
@@ -267,7 +325,7 @@ $error-color: #ed4337;
         }
 
         &--small {
-            width: 270px;
+            width: 100%;
         }
     }
 

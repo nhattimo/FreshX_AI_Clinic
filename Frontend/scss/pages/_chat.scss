@@ -145,13 +145,17 @@
         width: 80%;
         position: absolute;
         bottom: 10px;
-        left: 145px;
+        left: 20%;
+
+        @include abstracts.screen(md) {
+            left: 10%;
+        }
     }
 
     &__input {
-        width: 680px;
+        width: 81%;
         height: 42px;
-        padding: 5px 160px 5px 15px;
+        padding: 5px 140px 5px 15px;
         border: 1px solid #000;
         border-radius: 12px;
 
@@ -162,21 +166,23 @@
             font-size: 1.8rem;
             color: #00000046;
         }
+
+        @include abstracts.screen(md) {
+            padding: 5px 90px 5px 15px;
+            width: 100%;
+        }
     }
 
     &__icons {
         position: absolute;
-        bottom: 12px;
-        right: 215px;
+        bottom: 10px;
+        right: 21%;
+
         @extend %flexItemCenter;
         gap: 12px;
-        padding-right: 8px;
-        border-right: 1px solid #000;
 
-        &:nth-child(3) {
-            right: 155px;
-            bottom: 11px;
-            border: none;
+        @include abstracts.screen(md) {
+            right: 5%;
         }
     }
 
@@ -295,7 +301,8 @@
     }
 
     &__text {
-        max-width: 50%;
+        word-wrap: break-word;
+        max-width: 80%;
         position: relative;
         clear: both;
         float: right;

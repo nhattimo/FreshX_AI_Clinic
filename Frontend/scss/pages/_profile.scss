@@ -176,6 +176,10 @@
         display: block;
         object-fit: cover;
         border-radius: 10px;
+
+        @include abstracts.screen(lg) {
+            height: 100%;
+        }
     }
 
     &__top {
