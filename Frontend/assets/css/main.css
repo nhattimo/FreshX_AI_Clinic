@@ -3610,9 +3610,9 @@ strong {
 }
 
 .chat-message {
-  overflow: auto;
   height: 430px;
   padding: 0 20px;
+  overflow: auto;
 }
 .chat-message::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -3624,6 +3624,23 @@ strong {
 }
 .chat-message::-webkit-scrollbar-thumb {
   background-color: #000000;
+}
+.chat-message__icons {
+  position: absolute;
+  right: 10px;
+  bottom: -22px;
+}
+.chat-message__icon {
+  width: 6px;
+  height: 6px;
+  opacity: 0.5;
+  cursor: pointer;
+}
+.chat-message__icon:hover {
+  opacity: 1;
+}
+.chat-message__icon.active {
+  opacity: 1;
 }
 .chat-message__text {
   word-wrap: break-word;
@@ -3648,6 +3665,7 @@ strong {
   left: 0;
 }
 .chat-message__text--AI {
+  position: relative;
   float: left;
   border-radius: 10px 10px 10px 0;
 }

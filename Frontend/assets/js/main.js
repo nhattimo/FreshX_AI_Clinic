@@ -550,3 +550,15 @@ document.addEventListener("click", ({ target }) => {
         document.getElementById("modal-message").style.display = "none";
     }
 });
+
+// Icon chat feedback
+const listIcon = document.getElementById("feedback");
+const icon = document.getElementsByClassName("chat-message__icon");
+
+for (let i = 0; i < icon.length; i++) {
+    icon[i].addEventListener("click", function () {
+        let current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+    });
+}

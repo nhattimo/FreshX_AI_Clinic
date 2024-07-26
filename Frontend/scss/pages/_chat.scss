@@ -282,9 +282,9 @@
 }
 
 .chat-message {
-    overflow: auto;
     height: 430px;
     padding: 0 20px;
+    overflow: auto;
 
     &::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -298,6 +298,27 @@
 
     &::-webkit-scrollbar-thumb {
         background-color: #000000;
+    }
+
+    &__icons {
+        position: absolute;
+        right: 10px;
+        bottom: -22px;
+    }
+
+    &__icon {
+        width: 6px;
+        height: 6px;
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__icon.active {
+        opacity: 1;
     }
 
     &__text {
@@ -324,6 +345,7 @@
         }
 
         &--AI {
+            position: relative;
             float: left;
             border-radius: 10px 10px 10px 0;
 
