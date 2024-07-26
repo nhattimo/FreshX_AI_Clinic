@@ -1548,6 +1548,7 @@ strong {
 .header-action__name {
   font-size: 1.8rem;
   font-weight: 500;
+  line-height: 1.35;
 }
 .header-action__notice:hover {
   animation: ring 6s ease-in-out;
@@ -1892,7 +1893,7 @@ strong {
   color: #fff;
 }
 .btn-border--bot {
-  width: 136px;
+  width: 155px;
   margin: 28px auto 0;
 }
 
@@ -2240,7 +2241,7 @@ strong {
 }
 
 .hero-search {
-  width: 70%;
+  width: 55%;
   position: absolute;
   bottom: -130px;
   left: 50%;
@@ -2255,6 +2256,7 @@ strong {
 @media (max-width: 1199.98px) {
   .hero-search {
     width: 85%;
+    bottom: -150px;
   }
 }
 @media (max-width: 991.98px) {
@@ -2279,8 +2281,13 @@ strong {
 .hero-search__list {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 50px;
+  gap: 10px;
   margin-top: 40px;
+}
+@media (max-width: 1199.98px) {
+  .hero-search__list {
+    gap: 30px;
+  }
 }
 .hero-search__item {
   padding: 4px 10px;
@@ -2296,7 +2303,7 @@ strong {
   color: #0fb5d9;
 }
 
-.intro-info__wrap, .into-content__wrap, .intro {
+.intro-info__wrap, .intro {
   display: flex;
   align-items: center;
 }
@@ -2307,7 +2314,7 @@ strong {
 }
 @media (max-width: 1199.98px) {
   .intro {
-    margin-top: 70px;
+    margin-top: 220px;
   }
 }
 @media (max-width: 991.98px) {
@@ -2382,17 +2389,19 @@ strong {
   margin-top: 20px;
 }
 .into-content__wrap {
+  display: flex;
   gap: 20px;
 }
 .into-content__wrap + .into-content__wrap {
   margin-top: 15px;
 }
 .into-content__check {
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
   border-radius: 50%;
   background: #0fb5d9;
-  background-image: url(../../assets/icons/check.svg);
+  background-image: url(../../assets/icons/check-while.svg);
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 12px;
@@ -2535,7 +2544,7 @@ strong {
   background: linear-gradient(128deg, rgb(15, 181, 217) 0%, rgb(235, 91, 39) 99%);
 }
 .service-container__title {
-  margin-top: 150px;
+  margin-top: 70px;
   color: #0fb5d9;
   font-size: 2rem;
   font-weight: 600;
@@ -2996,7 +3005,7 @@ strong {
 }
 @media (max-width: 575.98px) {
   .feedback-bottom__btn {
-    width: 40%;
+    width: 45%;
   }
 }
 

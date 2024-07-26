@@ -11,7 +11,7 @@
     justify-content: space-between;
 
     @include abstracts.screen(xl) {
-        margin-top: 70px;
+        margin-top: 220px;
     }
 
     @include abstracts.screen(lg) {
@@ -85,7 +85,7 @@
     }
 
     &__wrap {
-        @extend %flexItemCenter;
+        display: flex;
         gap: 20px;
     }
 
@@ -94,11 +94,12 @@
     }
 
     &__check {
+        flex-shrink: 0;
         width: 24px;
         height: 24px;
         border-radius: 50%;
         background: #0fb5d9;
-        background-image: url(../../assets/icons/check.svg);
+        background-image: url(../../assets/icons/check-while.svg);
         background-position: 50%;
         background-repeat: no-repeat;
         background-size: 12px;
