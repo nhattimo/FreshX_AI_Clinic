@@ -3009,6 +3009,26 @@ strong {
   }
 }
 
+.feedback-item {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  color: #fff;
+  background: #0fb5d9;
+}
+.feedback-item__date {
+  color: #e9f6ff;
+}
+.feedback-item__message {
+  margin-top: 6px;
+  font-size: 1.8rem;
+  line-height: 1.62;
+}
+.feedback-item__rate {
+  margin-top: 8px;
+  text-align: end;
+}
+
 .form {
   margin-top: 40px;
 }
@@ -3925,7 +3945,7 @@ strong {
   align-items: center;
   justify-content: center;
   width: 24px;
-  height: 100%;
+  height: 24px;
 }
 .profile__desc {
   margin-bottom: 16px;
