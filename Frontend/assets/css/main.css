@@ -3440,11 +3440,15 @@ strong {
   padding: 15px 10px;
   border: 1px solid #959595;
   border-radius: 20px;
+  cursor: pointer;
 }
 .chat-block__add {
   margin-top: 24px;
   display: flex;
   justify-content: center;
+}
+.chat-block__icon {
+  cursor: pointer;
 }
 .chat-block__item + .chat-block__item {
   margin-top: 12px;

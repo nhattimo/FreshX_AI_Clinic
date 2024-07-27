@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- JS Load -->
         <script src="./assets/js/load.js"></script>
+        <!-- SignalR -->
+        <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@latest/dist/browser/signalr.js"></script>
         <!-- Styles -->
         <link rel="stylesheet" href="./assets/css/main.css" />
         <!-- Fonts -->
@@ -93,7 +95,7 @@
         <script>
             load("#header", "./templates/header-login.html");
         </script>
-        <!-- Main -->
+        <!-- Main -->t
         <main>
             <div class="chat">
                 <div class="row">
@@ -110,38 +112,25 @@
                                     nhatnvpd07532@fpt.edu.vn
                                 </p>
                             </article>
-                            <article id="chat-block" class="chat-block">
-                                <!-- Chat Item 1 -->
-                                <a href="#!" class="chat-block__item">
-                                    <h3 class="chat-block__title">
-                                        Tư vấn: AI văn bản
-                                    </h3>
-                                    <p class="chat-block__diagnostic">
-                                        Chuẩn đoán: Bị đau bụng
-                                    </p>
-                                    <p class="chat-block__status">
-                                        Tình trạng: Nhẹ
-                                    </p>
-                                    <p class="chat-block__date">
-                                        Ngày: 15/05/2024
-                                        <span class="chat-block__time">
-                                            18:06:32
-                                        </span>
-                                    </p>
-                                </a>
-                            </article>
+
+                            <!-- Chat block -->
+                            <article
+                                id="chat-block"
+                                class="chat-block"
+                            ></article>
+
                             <article
                                 id="chat-block__add"
                                 class="chat-block__add"
                             >
-                                <button id="clear">
-                                    <img
-                                        src="./assets/icons/plus.svg"
-                                        alt=""
-                                        class="chat-block__icon"
-                                    />
-                                </button>
+                                <img
+                                    id="clear"
+                                    src="./assets/icons/plus.svg"
+                                    alt=""
+                                    class="chat-block__icon"
+                                />
                             </article>
+
                             <article id="chat-container" class="chat-container">
                                 <!-- Chat Container Item 1 -->
                                 <div
@@ -187,7 +176,7 @@
                         </div>
                     </article>
                     <article class="col-9 col-md-12">
-                        <div id="chat-box" class="chat-box">
+                        <div class="chat-box">
                             <div
                                 id="chat-box__message"
                                 class="chat-box__message"
@@ -224,7 +213,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="chat" class="chat-message"></div>
 
                                 <form action="" class="chat-box__form">
                                     <input
@@ -293,8 +281,9 @@
                 </div>
             </div>
         </main>
-        <!-- js -->
+
         <script>
+            //Send button messenger
             function sendMessage() {
                 const userInput = document
                     .getElementById("inputMessage")
@@ -370,7 +359,9 @@
                 return chatHistory;
             }
         </script>
-
+        <!-- js -->
+        <script src="./javascriot/chat.js"></script>
         <script src="./assets/js/main.js"></script>
+        <script src="./javascriot/chat.js"></script>
     </body>
 </html>

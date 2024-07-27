@@ -57,12 +57,17 @@
         padding: 15px 10px;
         border: 1px solid #959595;
         border-radius: 20px;
+        cursor: pointer;
     }
 
     &__add {
         margin-top: 24px;
         display: flex;
         justify-content: center;
+    }
+
+    &__icon {
+        cursor: pointer;
     }
 
     &__item + &__item {

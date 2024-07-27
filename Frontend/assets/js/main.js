@@ -379,7 +379,7 @@ document.getElementById("luuY").onclick = function () {
 };
 
 function datLich() {
-    return `  <div class="row g-3">
+    return `<div class="row g-3">
     <div class="col-6">
         <div
             class="chat-box__container-wrap chat-box__container-wrap--other"
@@ -461,6 +461,7 @@ function datLich() {
     </div>
 </div>`;
 }
+
 document.getElementById("datLich").onclick = function () {
     document.getElementById("diagnostic").innerHTML = datLich();
 
@@ -544,45 +545,6 @@ document.getElementById("clear").onclick = function () {
     chatContainer.innerHTML = "";
 };
 
-//Chat message
-// function message(text) {
-//     return `<p
-//     id="messageUser"
-//     class="chat-message__text"
-// >${text}</p>`;
-// }
-
-// let i = [0];
-// document.getElementById("send").onclick = function () {
-//     let mess = document.getElementById("inputMessage").value;
-//     document.getElementById("chat-box__wrap").style.display = "none";
-//     document.getElementById("inputMessage").value = "";
-//     document.getElementById("chat").innerHTML += message(mess);
-
-//     document.getElementById("chat").innerHTML += messageAI(fakeAI[i]);
-//     i++;
-
-//     document.getElementById("dauBung").onclick = function () {
-//         document.getElementById("chat-block").style.display = "flex";
-//     };
-// };
-
-//Fake AI
-// function messageAI(text) {
-//     return `<p
-//     id="messageAI"
-//     class="chat-message__text chat-message__text--AI"
-// >${text}</p>`;
-// }
-
-// let fakeAI = [
-//     "Chào bạn, tôi có thể giúp gì cho bạn ?",
-//     "Bạn có thể cho tôi biết bạn bị đau ở vị trí nào không ?",
-//     'Dựa vào triệu chứng bạn đưa ra, chúng tôi đã phát hiện ra rằng bạn có thể bị mắc phải một số vấn đề liên quan đến đau bụng dưới. Chúng tôi khuyên bạn nên tham khảo ý kiến của bác sĩ để được kiểm tra và chẩn đoán chính xác. Ngoài ra, bạn cũng có thể tham khảo một số lời khuyên sau đây: "Rửa tay sạch trước khi ăn và chế biến thực phẩm". Chúc bạn sức khỏe!',
-//     'Nhấn vào đây để xem mô tả <button id="dauBung" class="chat-message__btn">Nhấn vào đây</button>',
-//     "Cảm ơn bạn, bạn có thể xem phần chuẩn đoán ở bên trái để biết rõ hơn bệnh của mình nhé",
-// ];
-
 //Modal
 document.addEventListener("click", ({ target }) => {
     if (
@@ -604,3 +566,46 @@ for (let i = 0; i < icon.length; i++) {
         this.className += " active";
     });
 }
+
+// Chat block
+async function fetchData() {
+    try {
+        // URL của API
+        const apiUrl = "https://freshx-api.azurewebsites.net/api/ChatSession"; // Thay thế bằng URL API của bạn
+
+        // Gọi API
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Lấy phần tử với id="chat-block"
+        const chatBlock = document.getElementById("chat-block");
+
+        // Xóa nội dung cũ (nếu có)
+        chatBlock.innerHTML = "";
+
+        // Duyệt qua mỗi mục dữ liệu và cập nhật nội dung
+        data.forEach((item) => {
+            chatBlock.innerHTML += `
+                <article class="chat-block__item">
+                    <h3 class="chat-block__title">Tư vấn: ${item.title}</h3>
+                    <p class="chat-block__diagnostic">Chuẩn đoán: Lorem ipsum</p>
+                    <p class="chat-block__status">Tình trạng: Lorem ipsum</p>
+                    <p class="chat-block__date">
+                        Ngày: 01/01/2024
+                        <span class="chat-block__time">12:00:00</span>
+                    </p>
+                </article>
+            `;
+        });
+    } catch (error) {
+        console.error("Lỗi khi gọi API:", error);
+    }
+}
+
+// Gọi hàm fetchData khi trang được tải
+window.onload = fetchData;
