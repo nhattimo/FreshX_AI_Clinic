@@ -172,6 +172,13 @@
                                         Đặt lịch phòng khám
                                     </h3>
                                 </div>
+
+                                <!-- Chat Container Item 7 -->
+                                <div class="chat-container__wrap" id="lichSu">
+                                    <h3 class="chat-container__title">
+                                        Lịch sử chat
+                                    </h3>
+                                </div>
                             </article>
                         </div>
                     </article>
@@ -281,87 +288,8 @@
                 </div>
             </div>
         </main>
-
-        <script>
-            //Send button messenger
-            function sendMessage() {
-                const userInput = document
-                    .getElementById("inputMessage")
-                    .value.trim();
-                document.getElementById("inputMessage").value = "";
-                if (userInput !== "") {
-                    addUserMessage(userInput);
-                    fetch("http://127.0.0.1:5000/chat", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            message: userInput,
-                            chat_history: getChatHistory(),
-                        }),
-                    })
-                        .then((response) => {
-                            if (!response.ok) {
-                                throw new Error("Network response was not ok");
-                            }
-                            return response.json();
-                        })
-                        .then((data) => {
-                            addAIMessage(data.response);
-                        })
-                        .catch((error) => {
-                            console.error("Error:", error);
-                        });
-                }
-            }
-
-            document
-                .getElementById("sendButton")
-                .addEventListener("click", sendMessage);
-            document
-                .getElementById("inputMessage")
-                .addEventListener("keydown", function (event) {
-                    if (event.key === "Enter") {
-                        event.preventDefault();
-                        sendMessage();
-                    }
-                });
-
-            function addUserMessage(message) {
-                const chatHistory = document.getElementById("chat");
-                const userMessageDiv = document.createElement("p");
-                userMessageDiv.className = "chat-message__text";
-                userMessageDiv.textContent = message;
-                chatHistory.appendChild(userMessageDiv);
-            }
-
-            function addAIMessage(message) {
-                const chatHistory = document.getElementById("chat");
-                const aiMessageDiv = document.createElement("p");
-                aiMessageDiv.className =
-                    "chat-message__text chat-message__text--AI";
-                aiMessageDiv.textContent = message;
-                chatHistory.appendChild(aiMessageDiv);
-            }
-
-            function getChatHistory() {
-                const chatHistory = [];
-                document.querySelectorAll("#chat > p").forEach((p) => {
-                    const role = p.className.includes("chat-message__text--AI")
-                        ? "ai"
-                        : "human";
-                    chatHistory.push({
-                        role,
-                        content: p.textContent,
-                    });
-                });
-                return chatHistory;
-            }
-        </script>
         <!-- js -->
         <script src="./javascriot/chat.js"></script>
         <script src="./assets/js/main.js"></script>
-        <script src="./javascriot/chat.js"></script>
     </body>
 </html>
