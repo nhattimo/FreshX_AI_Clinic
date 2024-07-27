@@ -130,6 +130,18 @@
                                     </p>
                                 </a>
                             </article>
+                            <article
+                                id="chat-block__add"
+                                class="chat-block__add"
+                            >
+                                <button id="clear">
+                                    <img
+                                        src="./assets/icons/plus.svg"
+                                        alt=""
+                                        class="chat-block__icon"
+                                    />
+                                </button>
+                            </article>
                             <article id="chat-container" class="chat-container">
                                 <!-- Chat Container Item 1 -->
                                 <div
@@ -175,7 +187,7 @@
                         </div>
                     </article>
                     <article class="col-9 col-md-12">
-                        <div class="chat-box">
+                        <div id="chat-box" class="chat-box">
                             <div
                                 id="chat-box__message"
                                 class="chat-box__message"
@@ -229,11 +241,13 @@
                                             alt=""
                                             class="chat-box__icon d-md-none"
                                         />
-                                        <img
-                                            src="./assets/icons/cut.svg"
-                                            alt=""
-                                            class="chat-box__icon d-md-none"
-                                        />
+                                        <a href="./callVideo.html">
+                                            <img
+                                                src="./assets/icons/video.svg"
+                                                alt=""
+                                                class="chat-box__icon d-md-none"
+                                            />
+                                        </a>
                                         <img
                                             id="mic"
                                             src="./assets/icons/mic.svg"
@@ -276,93 +290,86 @@
                             </div>
                         </div>
                     </article>
-
-                    <script>
-                        function sendMessage() {
-                            const userInput = document
-                                .getElementById("inputMessage")
-                                .value.trim();
-                            document.getElementById("inputMessage").value = "";
-                            if (userInput !== "") {
-                                addUserMessage(userInput);
-                                fetch("http://127.0.0.1:5000/chat", {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json",
-                                    },
-                                    body: JSON.stringify({
-                                        message: userInput,
-                                        chat_history: getChatHistory(),
-                                    }),
-                                })
-                                    .then((response) => {
-                                        if (!response.ok) {
-                                            throw new Error(
-                                                "Network response was not ok"
-                                            );
-                                        }
-                                        return response.json();
-                                    })
-                                    .then((data) => {
-                                        addAIMessage(data.response);
-                                    })
-                                    .catch((error) => {
-                                        console.error("Error:", error);
-                                    });
-                            }
-                        }
-
-                        document
-                            .getElementById("sendButton")
-                            .addEventListener("click", sendMessage);
-                        document
-                            .getElementById("inputMessage")
-                            .addEventListener("keydown", function (event) {
-                                if (event.key === "Enter") {
-                                    event.preventDefault();
-                                    sendMessage();
-                                }
-                            });
-
-                        function addUserMessage(message) {
-                            const chatHistory = document.getElementById("chat");
-                            const userMessageDiv = document.createElement("p");
-                            userMessageDiv.className = "chat-message__text";
-                            userMessageDiv.textContent = message;
-                            chatHistory.appendChild(userMessageDiv);
-                        }
-
-                        function addAIMessage(message) {
-                            const chatHistory = document.getElementById("chat");
-                            const aiMessageDiv = document.createElement("p");
-                            aiMessageDiv.className =
-                                "chat-message__text chat-message__text--AI";
-                            aiMessageDiv.textContent = message;
-                            chatHistory.appendChild(aiMessageDiv);
-                        }
-
-                        function getChatHistory() {
-                            const chatHistory = [];
-                            document
-                                .querySelectorAll("#chat > p")
-                                .forEach((p) => {
-                                    const role = p.className.includes(
-                                        "chat-message__text--AI"
-                                    )
-                                        ? "ai"
-                                        : "human";
-                                    chatHistory.push({
-                                        role,
-                                        content: p.textContent,
-                                    });
-                                });
-                            return chatHistory;
-                        }
-                    </script>
                 </div>
             </div>
         </main>
         <!-- js -->
+        <script>
+            function sendMessage() {
+                const userInput = document
+                    .getElementById("inputMessage")
+                    .value.trim();
+                document.getElementById("inputMessage").value = "";
+                if (userInput !== "") {
+                    addUserMessage(userInput);
+                    fetch("http://127.0.0.1:5000/chat", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            message: userInput,
+                            chat_history: getChatHistory(),
+                        }),
+                    })
+                        .then((response) => {
+                            if (!response.ok) {
+                                throw new Error("Network response was not ok");
+                            }
+                            return response.json();
+                        })
+                        .then((data) => {
+                            addAIMessage(data.response);
+                        })
+                        .catch((error) => {
+                            console.error("Error:", error);
+                        });
+                }
+            }
+
+            document
+                .getElementById("sendButton")
+                .addEventListener("click", sendMessage);
+            document
+                .getElementById("inputMessage")
+                .addEventListener("keydown", function (event) {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        sendMessage();
+                    }
+                });
+
+            function addUserMessage(message) {
+                const chatHistory = document.getElementById("chat");
+                const userMessageDiv = document.createElement("p");
+                userMessageDiv.className = "chat-message__text";
+                userMessageDiv.textContent = message;
+                chatHistory.appendChild(userMessageDiv);
+            }
+
+            function addAIMessage(message) {
+                const chatHistory = document.getElementById("chat");
+                const aiMessageDiv = document.createElement("p");
+                aiMessageDiv.className =
+                    "chat-message__text chat-message__text--AI";
+                aiMessageDiv.textContent = message;
+                chatHistory.appendChild(aiMessageDiv);
+            }
+
+            function getChatHistory() {
+                const chatHistory = [];
+                document.querySelectorAll("#chat > p").forEach((p) => {
+                    const role = p.className.includes("chat-message__text--AI")
+                        ? "ai"
+                        : "human";
+                    chatHistory.push({
+                        role,
+                        content: p.textContent,
+                    });
+                });
+                return chatHistory;
+            }
+        </script>
 
         <script src="./assets/js/main.js"></script>
     </body>

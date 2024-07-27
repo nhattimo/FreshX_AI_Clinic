@@ -7,6 +7,7 @@
 
 .chat {
     overflow: hidden;
+    height: 85vh;
     &__container {
         height: 85.3vh;
         @extend %flexItemCenter;
@@ -50,11 +51,18 @@
     margin-top: 36px;
     overflow-y: auto;
 
-    &__item {
+    &__item,
+    &__add {
         width: 80%;
         padding: 15px 10px;
         border: 1px solid #959595;
         border-radius: 20px;
+    }
+
+    &__add {
+        margin-top: 24px;
+        display: flex;
+        justify-content: center;
     }
 
     &__item + &__item {
@@ -327,7 +335,7 @@
         position: relative;
         clear: both;
         float: right;
-        margin: 8px 0;
+        margin: 26px 0;
         padding: 6px 10px 7px;
         background: #0fb5d9;
         font-size: 1.6rem;
@@ -364,3 +372,17 @@
         background: #fff;
     }
 }
+
+.message-image img {
+    float: right;
+    width: 60%;
+    clear: both;
+    float: right;
+    margin: 26px 0;
+    object-fit: cover;
+}
+
+// .chat-video {
+//     width: 100%;
+//     height: 500px;
+// }

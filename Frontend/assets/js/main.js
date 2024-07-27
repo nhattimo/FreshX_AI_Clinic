@@ -75,6 +75,7 @@ document.getElementById("out-chat").onclick = function () {
     this.style.display = "none";
     document.getElementById("chat-block").style.display = "flex";
     document.getElementById("chat-box__message").style.display = "block";
+    document.getElementById("chat-block__add").style.display = "flex";
     document.getElementById("chat-container").style.display = "none";
     document.getElementById("diagnostic").innerHTML = "";
 };
@@ -88,6 +89,7 @@ for (let index = 0; index < arr.length; index++) {
         document.getElementById("chat-block").style.display = "none";
         document.getElementById("chat-box__message").style.display = "none";
         document.getElementById("chat-container").style.display = "flex";
+        document.getElementById("chat-block__add").style.display = "none";
     };
 }
 
@@ -482,9 +484,22 @@ document.getElementById("datLich").onclick = function () {
 document.getElementById("pushImage").onclick = function () {
     let input = document.createElement("input");
     input.type = "file";
-    input.onchange = (_) => {
+    input.accept = "image/*";
+    input.onchange = (event) => {
         let files = Array.from(input.files);
-        console.log(files);
+        if (files.length > 0) {
+            let file = files[0];
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                let img = document.createElement("img");
+                img.src = e.target.result;
+                let message = document.createElement("div");
+                message.classList.add("message-image");
+                message.appendChild(img);
+                document.getElementById("chat").appendChild(message);
+            };
+            reader.readAsDataURL(file);
+        }
     };
     input.click();
 };
@@ -521,6 +536,12 @@ document.getElementById("mic").onclick = function () {
     };
 
     recognition.start();
+};
+
+//Clear
+document.getElementById("clear").onclick = function () {
+    let chatContainer = document.getElementById("chat");
+    chatContainer.innerHTML = "";
 };
 
 //Chat message
